@@ -19,6 +19,437 @@ include "content/db.php";
 include_once "content/helpers.php";
 // include "printer.php";
 
+// Eltern Liste aus Datenbank laden
+if ( isset($_GET['SetELDiBEltern']) ){
+  echo '<script>console.log("SetELDiBEltern");</script>';
+  $Inhalt =  '<div  id="ELDiBElternhead">';
+  $Inhalt.=  '  <h1>ELDiB Bewertungsbogen Eltern</h1>';
+  $Inhalt.=  '<div ><button type="button" onclick="HideELDiBEltern();" class="btn btn-primary btn-sm">zurück</button></div>';
+  $Inhalt.=  '<div class="Schuelerdaten">';    
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Name ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Vorname ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Klasse ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Eltern ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+
+  $Inhalt.= '</div>';
+  $Inhalt.= '<div id="ELDiBElterncontainer" class="tableFixHead">';
+  $Inhalt.= '<table class="table table-bordered table-striped table-hover table-sm">';
+  $Inhalt.= '<thead>';
+  $Inhalt.= '<tr class="BeschreibungHead">';
+  $Inhalt.= '<th class="KELZielBeschreibungHead">Beschreibung</th><th class="KELZielNummerHead">Bereich</th>'; 
+
+  $Inhalt.= '</tr>';
+  $Inhalt.= '</thead>';
+//alle 4 Bereiche durchgehen
+    // Ensure "details" array exists in the JSON structure
+    $existingData['titel'] = 'Einschätzungsbogen Eltern';
+    $existingData['content'] = 'Inhalt des Dokuments.';
+    $existingData['Vorname'] = 'Vorname';
+    $existingData['Nachname'] = 'Name';
+    $existingData['Klasse'] = 'Klasse';
+    $existingData['Eltern'] = 'Eltern';
+
+    if (!isset($existingData['details'])) {
+      $existingData['details'] = [];
+    }
+for($BereichID = 1; $BereichID <=4; $BereichID++)
+  {
+  $Stufe = 0;
+
+  $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+  $sql = "SELECT * FROM zieleeldibeltern WHERE BereichID = '".$BereichID."'";
+  $db_erg = mysqli_query( $db_link, $sql );
+  if ( ! $db_erg )
+  {
+    echo  'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+  }
+  while ($zeile = mysqli_fetch_assoc( $db_erg))
+    {
+      //Stufe anzeigen
+    if ($Stufe != $zeile['Stufe']){
+      $Inhalt.= '<tr>';
+    
+      //Stufe Beschreibung
+      $Inhalt.= '<td class="ZielStufe" >Stufe :'.$zeile['Stufe'];
+      $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+      $sqls = "SELECT * FROM stufenbeschreibungen WHERE BereichID = '1' AND Stufe = ".$zeile['Stufe']." ";
+      $db_ergs = mysqli_query( $db_link, $sqls );
+      if ( ! $db_ergs )
+        {
+          echo 'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+        }
+        
+        while ($zeiles = mysqli_fetch_assoc( $db_ergs))
+        {
+          $Inhalt.= '  '.MyStringHTML($zeiles['Beschreibung1']).'<br> '.MyStringHTML($zeiles['Beschreibung2']).'</td>';
+              // Prepare data to write into JSON
+          $zielData = [
+            'Stufe' => $zeile['Stufe'],
+            'BereichID' => $zeile['BereichID'],
+            'ZieleNummer' => '',
+            'ZieleStichwort' => 'Stufe :'.$zeile['Stufe'].' '.MyStringHTML($zeiles['Beschreibung1']).MyStringHTML($zeiles['Beschreibung2']),
+            'ZieleBeschreibung' => '',
+            'Notizen' => '',
+            // 'newSelect0' => 'später'
+          ];
+
+          // Append the new data to the "details" array
+          $existingData['details'][] = $zielData;
+        }
+        $Inhalt.=  "</tr>";
+      $Stufe = $zeile['Stufe'];
+    }
+    // Beschreibung und Stichwort Ziele eintragem
+    
+    // Prepare data to write into JSON
+    $zielData = [
+      'Stufe' => $zeile['Stufe'],
+      'BereichID' => $zeile['BereichID'],
+      'ZieleNummer' => $zeile['ZieleNummer'],
+      'ZieleStichwort' => $zeile['ZieleNummer'].' '.$zeile['ZieleStichwort'],
+      'ZieleBeschreibung' => $zeile['ZieleBeschreibung'],
+      'Notizen' => 'Notizen',
+      'newSelect0' => 'später'
+    ];
+
+
+
+    // Append the new data to the "details" array
+    $existingData['details'][] = $zielData;
+
+
+
+    // Generate the table cell
+    $Inhalt.= '<td class="KELZielNummer TabContent'.$BereichID.'" ondblclick="readText(this)">'.$zeile['ZieleNummer'].' '.MyStringHTML($zeile['ZieleStichwort']).'</td>';
+    $Inhalt.= '<td class="KELZielBeschreibung TabContent'.$BereichID.'" ondblclick="readText(this)"> '.MyStringHTML($zeile['ZieleBeschreibung']).'</td>';
+     
+
+
+      $Inhalt.=  "</tr>";
+      $Inhalt.= '<tr>';
+      $Inhalt.=  "</tr>";
+    }
+
+}
+$Inhalt.=  "</table>";			
+$Inhalt.=  "</div>";	
+  echo $Inhalt;
+      // Define the JSON file path
+      $jsonFilePath = 'JSON/VorlageElternNew.json';
+
+      // Read existing data from the JSON file
+      // $existingData = [];
+      if (file_exists($jsonFilePath)) {
+        // Overwrite the file by clearing its content
+        file_put_contents($jsonFilePath, '');
+        // $existingData = [];
+      }
+  
+      // // Append the new data
+      // $existingData[] = $zielData;
+  
+      // Write the updated data back to the JSON file
+      file_put_contents($jsonFilePath, json_encode($existingData, JSON_PRETTY_PRINT));
+
+}
+
+// Kind Liste aus Datenbank laden
+if ( isset($_GET['SetELDiBKind']) ){
+  echo '<script>console.log("SetELDiBKind");</script>';
+  $Inhalt =  '<div  id="ELDiBKindhead">';
+  $Inhalt.=  '  <h1>ELDiB Bewertungsbogen Kind</h1>';
+  $Inhalt.=  '<div ><button type="button" onclick="HideELDiBKind();" class="btn btn-primary btn-sm">zurück</button></div>';
+  $Inhalt.=  '<div class="Schuelerdaten">';    
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Name ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Vorname ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Klasse ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Kind ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+
+  $Inhalt.= '</div>';
+  $Inhalt.= '<div id="ELDiBKindcontainer" class="tableFixHead">';
+  $Inhalt.= '<table class="table table-bordered table-striped table-hover table-sm">';
+  $Inhalt.= '<thead>';
+  $Inhalt.= '<tr class="BeschreibungHead">';
+  $Inhalt.= '<th class="KELZielBeschreibungHead">Beschreibung</th><th class="KELZielNummerHead">Bereich</th>'; 
+
+  $Inhalt.= '</tr>';
+  $Inhalt.= '</thead>';
+//alle 4 Bereiche durchgehen
+    // Ensure "details" array exists in the JSON structure
+    $existingData['titel'] = 'Einschätzungsbogen Kind';
+    $existingData['content'] = 'Inhalt des Dokuments.';
+    $existingData['Vorname'] = 'Vorname';
+    $existingData['Nachname'] = 'Name';
+    $existingData['Klasse'] = 'Klasse';
+    $existingData['Kind'] = 'Kind';
+
+    if (!isset($existingData['details'])) {
+      $existingData['details'] = [];
+    }
+for($BereichID = 1; $BereichID <=4; $BereichID++)
+  {
+  $Stufe = 0;
+
+  $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+  $sql = "SELECT * FROM zieleeldibkind WHERE BereichID = '".$BereichID."'";
+  $db_erg = mysqli_query( $db_link, $sql );
+  if ( ! $db_erg )
+  {
+    echo  'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+  }
+  while ($zeile = mysqli_fetch_assoc( $db_erg))
+    {
+      //Stufe anzeigen
+    if ($Stufe != $zeile['Stufe']){
+      $Inhalt.= '<tr>';
+    
+      //Stufe Beschreibung
+      $Inhalt.= '<td class="ZielStufe" >Stufe :'.$zeile['Stufe'];
+      $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+      $sqls = "SELECT * FROM stufenbeschreibungen WHERE BereichID = '1' AND Stufe = ".$zeile['Stufe']." ";
+      $db_ergs = mysqli_query( $db_link, $sqls );
+      if ( ! $db_ergs )
+        {
+          echo 'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+        }
+        
+        while ($zeiles = mysqli_fetch_assoc( $db_ergs))
+        {
+          $Inhalt.= '  '.MyStringHTML($zeiles['Beschreibung1']).'<br> '.MyStringHTML($zeiles['Beschreibung2']).'</td>';
+              // Prepare data to write into JSON
+          $zielData = [
+            'Stufe' => $zeile['Stufe'],
+            'BereichID' => $zeile['BereichID'],
+            'ZieleNummer' => '',
+            'ZieleStichwort' => 'Stufe :'.$zeile['Stufe'].' '.MyStringHTML($zeiles['Beschreibung1']).MyStringHTML($zeiles['Beschreibung2']),
+            'ZieleBeschreibung' => '',
+            'Notizen' => '',
+            // 'newSelect0' => 'später'
+          ];
+
+          // Append the new data to the "details" array
+          $existingData['details'][] = $zielData;
+        }
+        $Inhalt.=  "</tr>";
+      $Stufe = $zeile['Stufe'];
+    }
+    // Beschreibung und Stichwort Ziele eintragem
+    
+    // Prepare data to write into JSON
+    $zielData = [
+      'Stufe' => $zeile['Stufe'],
+      'BereichID' => $zeile['BereichID'],
+      'ZieleNummer' => $zeile['ZieleNummer'],
+      'ZieleStichwort' => $zeile['ZieleNummer'].' '.$zeile['ZieleStichwort'],
+      'ZieleBeschreibung' => $zeile['ZieleBeschreibung'],
+      'Notizen' => 'Notizen',
+      'newSelect0' => 'später'
+    ];
+
+
+
+    // Append the new data to the "details" array
+    $existingData['details'][] = $zielData;
+
+
+
+    // Generate the table cell
+    $Inhalt.= '<td class="KELZielNummer TabContent'.$BereichID.'" ondblclick="readText(this)">'.$zeile['ZieleNummer'].' '.MyStringHTML($zeile['ZieleStichwort']).'</td>';
+    $Inhalt.= '<td class="KELZielBeschreibung TabContent'.$BereichID.'" ondblclick="readText(this)"> '.MyStringHTML($zeile['ZieleBeschreibung']).'</td>';
+     
+
+
+      $Inhalt.=  "</tr>";
+      $Inhalt.= '<tr>';
+      $Inhalt.=  "</tr>";
+    }
+
+}
+$Inhalt.=  "</table>";			
+$Inhalt.=  "</div>";	
+  echo $Inhalt;
+      // Define the JSON file path
+      $jsonFilePath = 'JSON/VorlageKindNew.json';
+
+      // Read existing data from the JSON file
+      // $existingData = [];
+      if (file_exists($jsonFilePath)) {
+        // Overwrite the file by clearing its content
+        file_put_contents($jsonFilePath, '');
+        // $existingData = [];
+      }
+  
+      // // Append the new data
+      // $existingData[] = $zielData;
+  
+      // Write the updated data back to the JSON file
+      file_put_contents($jsonFilePath, json_encode($existingData, JSON_PRETTY_PRINT));
+
+}
+
+// Lehrer Liste aus Datenbank laden
+if ( isset($_GET['SetELDiBLehrer']) ){
+  echo '<script>console.log("SetELDiBLehrer");</script>';
+  $Inhalt =  '<div  id="ELDiBLehrerhead">';
+  $Inhalt.=  '  <h1>ELDiB Bewertungsbogen Lehrer</h1>';
+  $Inhalt.=  '<div ><button type="button" onclick="HideELDiBLehrer();" class="btn btn-primary btn-sm">zurück</button></div>';
+  $Inhalt.=  '<div class="Schuelerdaten">';    
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Name ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Vorname ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Klasse ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+  $Inhalt.=  'Name : Lehrer ';
+  $Inhalt.=   '</div>';
+  $Inhalt.=   '</div>';
+  $Inhalt.=  '<div>';
+
+  $Inhalt.= '</div>';
+  $Inhalt.= '<div id="ELDiBLehrercontainer" class="tableFixHead">';
+  $Inhalt.= '<table class="table table-bordered table-striped table-hover table-sm">';
+  $Inhalt.= '<thead>';
+  $Inhalt.= '<tr class="BeschreibungHead">';
+  $Inhalt.= '<th class="KELZielBeschreibungHead">Beschreibung</th><th class="KELZielNummerHead">Bereich</th>'; 
+
+  $Inhalt.= '</tr>';
+  $Inhalt.= '</thead>';
+//alle 4 Bereiche durchgehen
+    // Ensure "details" array exists in the JSON structure
+    $existingData['titel'] = 'Einschätzungsbogen Lehrer';
+    $existingData['content'] = 'Inhalt des Dokuments.';
+    $existingData['Vorname'] = 'Vorname';
+    $existingData['Nachname'] = 'Name';
+    $existingData['Klasse'] = 'Klasse';
+    $existingData['Lehrer'] = 'Lehrer';
+
+    if (!isset($existingData['details'])) {
+      $existingData['details'] = [];
+    }
+for($BereichID = 1; $BereichID <=4; $BereichID++)
+  {
+  $Stufe = 0;
+
+  $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+  $sql = "SELECT * FROM zieleeldiblehrer WHERE BereichID = '".$BereichID."'";
+  $db_erg = mysqli_query( $db_link, $sql );
+  if ( ! $db_erg )
+  {
+    echo  'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+  }
+  while ($zeile = mysqli_fetch_assoc( $db_erg))
+    {
+      //Stufe anzeigen
+    if ($Stufe != $zeile['Stufe']){
+      $Inhalt.= '<tr>';
+    
+      //Stufe Beschreibung
+      $Inhalt.= '<td class="ZielStufe" >Stufe :'.$zeile['Stufe'];
+      $db_link = new mysqli($_SESSION["host_name"], $_SESSION["user_name"], $_SESSION["password"], $_SESSION["database"]);
+      $sqls = "SELECT * FROM stufenbeschreibungen WHERE BereichID = '1' AND Stufe = ".$zeile['Stufe']." ";
+      $db_ergs = mysqli_query( $db_link, $sqls );
+      if ( ! $db_ergs )
+        {
+          echo 'ungültige Bereich Abfrage Ziele: Error message: %s\n'. $db_link->error;
+        }
+        
+        while ($zeiles = mysqli_fetch_assoc( $db_ergs))
+        {
+          $Inhalt.= '  '.MyStringHTML($zeiles['Beschreibung1']).'<br> '.MyStringHTML($zeiles['Beschreibung2']).'</td>';
+              // Prepare data to write into JSON
+          $zielData = [
+            'Stufe' => $zeile['Stufe'],
+            'BereichID' => $zeile['BereichID'],
+            'ZieleNummer' => '',
+            'ZieleStichwort' => 'Stufe :'.$zeile['Stufe'].' '.MyStringHTML($zeiles['Beschreibung1']).MyStringHTML($zeiles['Beschreibung2']),
+            'ZieleBeschreibung' => '',
+            'Notizen' => '',
+            // 'newSelect0' => 'später'
+          ];
+
+          // Append the new data to the "details" array
+          $existingData['details'][] = $zielData;
+        }
+        $Inhalt.=  "</tr>";
+      $Stufe = $zeile['Stufe'];
+    }
+    // Beschreibung und Stichwort Ziele eintragem
+    
+    // Prepare data to write into JSON
+    $zielData = [
+      'Stufe' => $zeile['Stufe'],
+      'BereichID' => $zeile['BereichID'],
+      'ZieleNummer' => $zeile['ZieleNummer'],
+      'ZieleStichwort' => $zeile['ZieleNummer'].' '.$zeile['ZieleStichwort'],
+      'ZieleBeschreibung' => $zeile['ZieleBeschreibung'],
+      'Notizen' => 'Notizen',
+      'newSelect0' => 'später'
+    ];
+
+
+
+    // Append the new data to the "details" array
+    $existingData['details'][] = $zielData;
+
+
+
+    // Generate the table cell
+    $Inhalt.= '<td class="KELZielNummer TabContent'.$BereichID.'" ondblclick="readText(this)">'.$zeile['ZieleNummer'].' '.MyStringHTML($zeile['ZieleStichwort']).'</td>';
+    $Inhalt.= '<td class="KELZielBeschreibung TabContent'.$BereichID.'" ondblclick="readText(this)"> '.MyStringHTML($zeile['ZieleBeschreibung']).'</td>';
+     
+
+
+      $Inhalt.=  "</tr>";
+      $Inhalt.= '<tr>';
+      $Inhalt.=  "</tr>";
+    }
+
+}
+$Inhalt.=  "</table>";			
+$Inhalt.=  "</div>";	
+  echo $Inhalt;
+      // Define the JSON file path
+      $jsonFilePath = 'JSON/VorlageLehrerNew.json';
+
+      // Read existing data from the JSON file
+      // $existingData = [];
+      if (file_exists($jsonFilePath)) {
+        // Overwrite the file by clearing its content
+        file_put_contents($jsonFilePath, '');
+        // $existingData = [];
+      }
+  
+      // // Append the new data
+      // $existingData[] = $zielData;
+  
+      // Write the updated data back to the JSON file
+      file_put_contents($jsonFilePath, json_encode($existingData, JSON_PRETTY_PRINT));
+
+}
 
 if ( isset($_GET['SetNewColumn']) ){
   $_SESSION['NewColumn'] = 1;
@@ -53,7 +484,7 @@ if ( isset($_GET['SaveJSONFile']) ){
   }
 }
 
-// leeres Blatte erzeugen
+// leeres Blatte erzeugen aus JSON
 if ( isset($_GET['ELDiBLehrerNew']) ){
   $filename = "JSON/FirstTemplateEltern.json";
   $jsonContent = file_get_contents($filename);
@@ -63,7 +494,7 @@ if ( isset($_GET['ELDiBLehrerNew']) ){
     // echo '</pre>';
 } 
 
-// Erstelle Vorlage - Stufendaten aus Datenbank laden
+// Erstelle Vorlage - Stufendaten aus Datenbank laden aus JSON
 if ( isset($_GET['ELDiBLehrerFirstTemplate']) ){
   $filename = "JSON/VorlageEltern.json";
   $jsonContent = file_get_contents($filename);
@@ -85,12 +516,11 @@ if ( isset($_GET['ELDiBLehrerFirstTemplate']) ){
 // }
 
 //Seitenansicht erstellen aus JSON-Templatedatei
-if ( isset($_GET['SetELDiBLehrerJSON']))
-  {
-  $Inhalt = '';
-  $filename = $_GET['Filename'];
-  $_SESSION['ActFilename'] = $filename;
-  $NewColumn = $_GET['NewColumn'];
+if ( isset($_GET['SetELDiBLehrerJSON'])){
+    $Inhalt = '';
+    $filename = $_GET['Filename'];
+    $_SESSION['ActFilename'] = $filename;
+    $NewColumn = $_GET['NewColumn'];
     // echo '<pre>';
     // print_r($_SESSION['data']);
     // echo '</pre>';
@@ -117,22 +547,22 @@ if ( isset($_GET['SetELDiBLehrerJSON']))
       $Inhalt .= '<th id="HeadDatum_'.$DatumNummer.'">' . $datum . '</th>';
       $DatumNummer = $DatumNummer + 1;
       // $Inhalt .= '<th>' . $datum . ' (' . implode(", ", array_keys($_SESSION['data']['details'][0]['Datum'], $datum)) . ')</th>';
-  }
-  if ($_SESSION['NewColumn'] == 1){
-    $Inhalt.= '<th id="HeadDatum_'.$DatumNummer.'" class="KELZielNummerHead">'.date('Y-m-d').'</th>';
-  }
-  //      foreach($_SESSION['data']['details'][0]['Datum'] as $Datum){
-  //     $Inhalt.= '<th>'.$Datum['Daten'].'</th>'; 
-  // }
+    }
+    // if ($_SESSION['NewColumn'] == 1){
+    //   $Inhalt.= '<th id="HeadDatum_'.$DatumNummer.'" class="KELZielNummerHead">'.date('Y-m-d').'</th>';
+    // }
+    //      foreach($_SESSION['data']['details'][0]['Datum'] as $Datum){
+    //     $Inhalt.= '<th>'.$Datum['Daten'].'</th>'; 
+    // }
     // $Inhalt.= '<th>'.$_SESSION['data']['details'][0]['Datum'][0]['Daten'].'</th>';
     $Inhalt.= '</tr>';
     $Inhalt.= '</thead>';
     $ArrayCounter = -1;
 
-  $Stufe = "Stufe";
-  foreach($_SESSION['data']['details'] as $ziele)
-    {
-        //Stufe anzeigen
+    $Stufe = "Stufe";
+    foreach($_SESSION['data']['details'] as $ziele)
+      {
+          //Stufe anzeigen
           $ArrayCounter = $ArrayCounter + 1;
           //Stufe anzeigen
         // if ($Stufe != $ziele['Stufe'] and  $NewColumn == true){
@@ -204,22 +634,22 @@ if ( isset($_GET['SetELDiBLehrerJSON']))
         }
       }
         // leere Spalte ##################################################################
-        if ($_SESSION['NewColumn'] == 1){
-        $Inhalt.= '<td >
-        <label for="Auswahl"> </label>
-        <select class="form-select" name="Auswahl" id="Selected_'.$ArrayCounter.'" onchange="getSelectedOption('.$ArrayCounter.');">';
+        // if ($_SESSION['NewColumn'] == 1){
+        // $Inhalt.= '<td >
+        // <label for="Auswahl"> </label>
+        // <select class="form-select" name="Auswahl" id="Selected_'.$ArrayCounter.'" onchange="getSelectedOption('.$ArrayCounter.');">';
 
-          $Inhalt.= '<option class="option1 " value="später" >später</option>';
+        //   $Inhalt.= '<option class="option1 " value="später" >später</option>';
 
-          $Inhalt.= '<option class="option2" value="übt es jetzt">Übt es jetzt</option>';
+        //   $Inhalt.= '<option class="option2" value="übt es jetzt">Übt es jetzt</option>';
 
 
-            $Inhalt.= '<option class="option3" value="kann das Kind" >Kann das Kind</option>';
-        // } <p style="display: none;" id="output_'.$ArrayCounter.'"></p>
-        $Inhalt.= '</select>
-        <p id="output_'.$ArrayCounter.'"></p>
-        </td>';        
-        }
+        //     $Inhalt.= '<option class="option3" value="kann das Kind" >Kann das Kind</option>';
+        // // } <p style="display: none;" id="output_'.$ArrayCounter.'"></p>
+        // $Inhalt.= '</select>
+        // <p id="output_'.$ArrayCounter.'"></p>
+        // </td>';        
+        // }
         //###############################################################################
         $Inhalt.=  "</tr>";
         $Inhalt.=  "<tr>";
@@ -229,17 +659,17 @@ if ( isset($_GET['SetELDiBLehrerJSON']))
     $_SESSION['LehrerArrayCounter'] = $ArrayCounter;
 
     
-  }
-  $Inhalt.=  "</table>";			
-  $Inhalt.=  "</div>";	
-  $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="PrintLehrerHTML();">Print Lehrer HTML</button>';
-  $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="PrintLehrer('.$ArrayCounter.');">Print Lehrer</button>';
-  // $Inhalt.= '<button type="button" onclick="createJSONTemplateFileJS('.$JSONOutputFile.');">Create JSON File</button>';
-  // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="createJSONTemplateFileJS();">Create JSON File</button>';
-  $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="saveJSON('.$ArrayCounter.');">Speichern</button>';
-  $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="setNewColumn();">Neue Bewertung</button>';
-  // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="();">Datei speichern</button>';
-  // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="downloadSessionData();">Daten herunterladen</button>';
+    }
+    $Inhalt.=  "</table>";			
+    $Inhalt.=  "</div>";	
+    $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="PrintLehrerHTML();">Print Lehrer HTML</button>';
+    $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="PrintLehrer('.$ArrayCounter.');">Print Lehrer</button>';
+    // $Inhalt.= '<button type="button" onclick="createJSONTemplateFileJS('.$JSONOutputFile.');">Create JSON File</button>';
+    // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="createJSONTemplateFileJS();">Create JSON File</button>';
+    $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="saveJSON('.$ArrayCounter.');">Speichern</button>';
+    $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="setNewColumn();">Neue Bewertung</button>';
+    // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="();">Datei speichern</button>';
+    // $Inhalt.= '<button class="btn-primary m-1" type="button" onclick="downloadSessionData();">Daten herunterladen</button>';
   
 
       echo $Inhalt;
@@ -280,9 +710,9 @@ if ( isset($_GET['SetELDiBLehrerJSONFirstTemplate']))
       $DatumNummer = $DatumNummer + 1;
       // $Inhalt .= '<th>' . $datum . ' (' . implode(", ", array_keys($_SESSION['data']['details'][0]['Datum'], $datum)) . ')</th>';
   }
-  if ($_SESSION['NewColumn'] == 1){
-    $Inhalt.= '<th id="HeadDatum_'.$DatumNummer.'" class="KELZielNummerHead">'.date('Y-m-d').'</th>';
-  }
+  // if ($_SESSION['NewColumn'] == 1){
+  //   $Inhalt.= '<th id="HeadDatum_'.$DatumNummer.'" class="KELZielNummerHead">'.date('Y-m-d').'</th>';
+  // }
   //      foreach($_SESSION['data']['details'][0]['Datum'] as $Datum){
   //     $Inhalt.= '<th>'.$Datum['Daten'].'</th>'; 
   // }
@@ -352,22 +782,22 @@ if ( isset($_GET['SetELDiBLehrerJSONFirstTemplate']))
           </td>';        
         }
         // leere Spalte ##################################################################
-        if ($_SESSION['NewColumn'] == 1){
-        $Inhalt.= '<td >
-        <label for="Auswahl"> </label>
-        <select class="form-select" name="Auswahl" id="Selected_'.$ArrayCounter.'" onchange="getSelectedOption('.$ArrayCounter.');">';
+        // if ($_SESSION['NewColumn'] == 1){
+        // $Inhalt.= '<td >
+        // <label for="Auswahl"> </label>
+        // <select class="form-select" name="Auswahl" id="Selected_'.$ArrayCounter.'" onchange="getSelectedOption('.$ArrayCounter.');">';
 
-          $Inhalt.= '<option class="option1 " value="später" >später</option>';
+        //   $Inhalt.= '<option class="option1 " value="später" >später</option>';
 
-          $Inhalt.= '<option class="option2" value="übt es jetzt">Übt es jetzt</option>';
+        //   $Inhalt.= '<option class="option2" value="übt es jetzt">Übt es jetzt</option>';
 
 
-            $Inhalt.= '<option class="option3" value="kann das Kind" >Kann das Kind</option>';
-        // } <p style="display: none;" id="output_'.$ArrayCounter.'"></p>
-        $Inhalt.= '</select>
-        <p id="output_'.$ArrayCounter.'"></p>
-        </td>';        
-        }
+        //     $Inhalt.= '<option class="option3" value="kann das Kind" >Kann das Kind</option>';
+        // // } <p style="display: none;" id="output_'.$ArrayCounter.'"></p>
+        // $Inhalt.= '</select>
+        // <p id="output_'.$ArrayCounter.'"></p>
+        // </td>';        
+        // }
         //###############################################################################
         $Inhalt.=  "</tr>";
         $Inhalt.=  "<tr>";

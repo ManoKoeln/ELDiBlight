@@ -1,19 +1,10 @@
 
 <?php
 session_start(); // Starten der Session
-// if (isset($_POST['variableName']) && isset($_POST['value'])) {
-//   $variableName = $_POST['variableName'];
-//   $value = $_POST['value'];
-//   $_SESSION[$variableName] = $value;
-//   echo "Session variable set successfully";
-// } 
+$_SESSION['LocalChat'] = true;
 
-// $user_agent = "";
-// $user_agent = $_SERVER['HTTP_USER_AGENT'];
 // require "content/db.php";
-// $_SESSION['NewColumn'] = 0;
-// $_SESSION['ActFilename'] = "actuelle Datei";
-// $_SESSION['$data'] = "";
+
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +24,9 @@ session_start(); // Starten der Session
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
     <script src="Myjs.js"></script>
     <script src="Printer.js"></script>
-    <script src="ELDiBLehrer.js"></script>
+    <script src="JScript/ELDiBLehrer.js"></script>
+    <!-- <script src="JScript/ELDiKind.js"></script> -->
+    <!-- <script src="JScript/ELDiBEltern.js"></script> -->
     <script src="JSON_Handling.js"></script>
     
     <style>
@@ -51,13 +44,15 @@ session_start(); // Starten der Session
             top: 20%;
             width: 100%;
             height: 22vh;
+            left: 0;
+            margin: 0;
             background-color: lightblue; /* Beispielhintergrundfarbe */
         }
 
         .fixed-bottom-custom {
             top: 33%;
             width: 100%;
-            height: 58vh;
+            height: 53vh;
             background-color: #dee2e6; /* Beispielhintergrundfarbe */
             overflow: auto; /* Ermöglicht das Scrollen, wenn der Inhalt größer ist als der Container */
         }
@@ -116,16 +111,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div id="Header" class="fixed-top-custom ">
   Header
 </div>
-<div id="AktualClient" class="fixed-middle-custom row g-4 p-2">
+<div id="AktualClient" class="fixed-middle-custom row m-1">
   <div class="col-md-2">
-    <label id="DescVorname" for="validationCustom01" class="form-label">Vorname</label>
+    <label id="DescVorname" for="validationCustom01" class="form-label" onclick="readText(this)">Vorname</label>
     <input type="text" class="form-control" id="validationVorname" value="Vorname" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-2">
-    <label id="DescName" for="validationCustom02" class="form-label">Name</label>
+    <label id="DescName" for="validationCustom02" class="form-label" onclick="readText(this)">Name</label>
     <input type="text" class="form-control" id="validationName" value="Name" required>
     <div class="valid-feedback">
       Looks good!
@@ -133,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 
   <div class="col-md-2">
-    <label id="DescKlasse" for="validationCustom03" class="form-label">Klasse</label>
+    <label id="DescKlasse" for="validationCustom03" class="form-label" onclick="readText(this)">Klasse</label>
     <input type="text" class="form-control" id="validationKlasse" required>
     <div class="invalid-feedback">
       Bitte geben Sie die Klasse ein.
@@ -141,27 +136,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 
   <div class="col-md-2">
-    <label id="DescLehrer" for="validationCustom05" class="form-label">Lehrer</label>
+    <label id="DescLehrer" for="validationCustom05" class="form-label" onclick="readText(this)">Lehrer</label>
     <input type="text" class="form-control" id="validationLehrer" required>
     <div class="invalid-feedback">
       Bitte geben Sie den Namen des Lehrers ein.
     </div>
   </div>
 
-  <div class="col-md-12">
+  
+  <!-- <div class="col-md-10 col-sm-12"> -->
+  <!-- <div class="container"> -->
+    <!-- <div class="row row-cols-12 row-cols-sm-6 row-cols-md-8 row-cols-xs-2 row-cols-xxl-12 g-2"> -->
+    <div class="row row-cols-12">
+      <div class="col">
+        <button class="btn btn-primary m-1 " onclick="NewJSONLehrer()">Neue Datei (Lehrer)</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary m-1 " onclick="NewJSONKind()">Neue Datei (Kind)</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary m-1 w-130" onclick="NewJSONEltern()">Neue Datei (Eltern)</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary m-1 w-130" onclick="loadJSON()">Datei laden</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary m-1 w-130" onclick="saveJSON()">Datei speichern</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary m-1 w-130" onclick="exportTableToWord()">
+          <i class="fas fa-print"></i>
+        </button>
+      </div>
+      <!-- <div class="col">
+      <button class="btn btn-secoundary m-1 w-130" onclick="window.location.href='JsonEditor.php'">JSON Editor öffnen</button>
+      </div> -->
+      <div class="col">
+      <button class="btn btn-primary m-1 w-130" onclick="window.location.href='Start2.php'">Zurück zur Startseite</button>
+      </div>
+      
 
-  <button class="btn btn-primary m-1" onclick="NewJSON()">Neue Datei erstellen</button>
-  <button class="btn btn-primary m-1" onclick="loadJSON()">Lade Daten aus JSON-Datei</button>
-  <button class="btn btn-primary m-1" onclick="saveJSON()">Speichere Daten in eine JSON-Datei</button>
-  <button class="btn btn-secondary m-1" onclick="saveAsJSON()">Erstelle JSON-Datei</button>
+      
+    </div>
+  <!-- </div> -->
+  <!-- </div> -->
 
-  <button class="btn btn-primary m-1" onclick="window.location.href='JsonEditor.php'">JSON Editor öffnen</button>
+  <!-- <button class="btn btn-secondary m-1" onclick="saveAsJSON()">Erstelle JSON-Datei</button> -->
+
+  <!-- <button class="btn btn-secoundary m-1" onclick="window.location.href='JsonEditor.php'">JSON Editor öffnen</button>
+  <button class="btn btn-primary" onclick="window.location.href='Start2.php'">Zurück zur Startseite</button> -->
+
   <!-- <button class="btn m-1" onclick="addColumn()">Füge eine Spalte hinzu</button> -->
   <!-- <button class="btn btn-warning m-1" onclick="exportToWord()">Exportiere als Word-Dokument</button> -->
   <!-- <button class="btn btn-secondary m-1" onclick="exportTableToWord()">Tabelle in Word exportieren</button> -->
-  <button class="btn btn-primary m-1" onclick="exportTableToWord()">
-    <i class="fas fa-print"></i>
-</button>
+
 
 <!-- </form> -->
 </div>
@@ -170,6 +198,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   Startseite
 </div>
 </body>
+<footer class="fixed-bottom">
+  <div class="container">
+    <p class="text-center">© 2023 ETEP. Alle Rechte vorbehalten.</p>
+    
+  </div>
 </html>
 
 

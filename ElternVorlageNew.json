@@ -4,7 +4,7 @@
     "Vorname": "Vorname",
     "Nachname": "Name",
     "Klasse": "Klasse",
-    "Lehrer": "Lehrer",
+    "Eltern": "Eltern",
     "details": [
         {
             "Stufe": "1",

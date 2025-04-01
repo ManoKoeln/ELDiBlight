@@ -1,91 +1,11 @@
 {
-    "titel": "Einsch\u00e4tzungsbogen Eltern",
+    "titel": "Einsch\u00e4tzungsbogen Kind",
     "content": "Inhalt des Dokuments.",
     "Vorname": "Vorname",
     "Nachname": "Name",
     "Klasse": "Klasse",
     "Lehrer": "Lehrer",
     "details": [
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "",
-            "ZieleStichwort": "Stufe :1 Mit Freude auf die Umwelt reagieren.Gebraucht W\u00f6rter, um Bed\u00fcrfnisse zu befriedigen.",
-            "ZieleBeschreibung": "",
-            "Notizen": ""
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 1",
-            "ZieleStichwort": "K 1 Ger\u00e4usche",
-            "ZieleBeschreibung": "Das Kind macht Ger\u00e4usche, um sich auszudr\u00fccken, und wiederholt diese Ger\u00e4uschfolgen. Mehrere verschiedene Folgen sind w\u00fcnschenswert. Jede Kombination von Lauten wird akzeptiert, z.B. \u201eeee\u201c, \u201emmm\u201c, \u201ebaba\u201c.",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 2",
-            "ZieleStichwort": "K 2 Sprecher",
-            "ZieleBeschreibung": "Das Kind wendet sich einem Sprecher zu. (Das Kind bewegt sich zu\r\nIhnen hin oder schaut in Ihre Richtung, wenn Sie sprechen. Es ist\r\nnicht n\u00f6tig, dass es Ihnen in die Augen schaut.)\r\n",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 3",
-            "ZieleStichwort": "K 3 verbaler Stimulus",
-            "ZieleBeschreibung": "Das Kind reagiert mit Bewegungen oder Blick, wenn man ihm etwas sagt. Dabei erinnert es sich daran, was das Gesagte bedeutet, ohne dass Sie ihm durch Zeichen zeigen, was Sie meinen (z.B. \u201eNimm den Ball\", ohne zu zeigen - Kind nimmt ihn; oder Sie sagen \u201eAuf Wiedersehen\", ohne zu winken - das Kind winkt).",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 4",
-            "ZieleStichwort": "K 4 Wort- Ann\u00e4herung",
-            "ZieleBeschreibung": "Das Kind antwortet auf einen Hinweis von Ihnen mit einem erkennbaren Wort, das aber noch nicht ganz richtig ausgesprochen zu werden braucht. Es gen\u00fcgt, wenn man das Wort erkennt. Sie k\u00f6nnen ihm das jeweilige Wort vorsagen, z.B. den Namen eines Geschwisterchens.\r\n",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 5",
-            "ZieleStichwort": "K 5 W\u00f6rter spontan",
-            "ZieleBeschreibung": "Das Kind spricht von sich aus (ohne jede Hilfe von Ihnen) in erkennbaren W\u00f6rtern (die W\u00f6rter brauchen dabei noch nicht ganz richtig ausgesprochen zu sein), wenn es z.B. einen Gegenstand oder eine Person benennen will, sie beschreiben will, etwas fragen will.",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 6",
-            "ZieleStichwort": "K 6 W\u00f6rter Erwachsener",
-            "ZieleBeschreibung": "Das Kind spricht erkennbare einzelne W\u00f6rter richtig, wenn es will, dass Sie etwas tun, oder wenn es einen Gegenstand beschreiben will. (Eventuell helfen Sie durch Fragen oder Hinweise.) [Genau wie Sozialisation SOZ-8.]\r\n",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 7",
-            "ZieleStichwort": "K 7 W\u00f6rter Peer",
-            "ZieleBeschreibung": "Das Kind spricht erkennbare einzelne W\u00f6rter richtig, wenn es will, dass ein anderes Kind etwas tut. (Eventuell helfen Sie durch Fragen oder Hinweise.)\r\n",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "1",
-            "ZieleNummer": "K 8",
-            "ZieleStichwort": "K 8 Wortreihungen",
-            "ZieleBeschreibung": "Das Kind spricht eine sinnvolle Reihe von W\u00f6rtern, ohne dass jemand vorsagt, um etwas von einem anderen zu erreichen oder um etwas zu benennen. (Eventuell helfen Sie durch Fragen oder Hinweise.)",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
         {
             "Stufe": "2",
             "BereichID": "1",
@@ -99,7 +19,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 9",
             "ZieleStichwort": "K 9 beantworten",
-            "ZieleBeschreibung": "Wenn ein anderes Kind oder ein Erwachsener etwas fragt, dann gibt Ihr Kind eine verst\u00e4ndliche Antwort, die wirklich auch mit der Frage zu tun hat. Wenn ein Kind oder ein Erwachsener Ihr Kind auffordert, etwas zu tun oder zu lassen, dann antwortet es auch verst\u00e4ndlich auf die Aufforderung. (Der Antwort-Inhalt muss nicht pr\u00e4zise sein.)",
+            "ZieleBeschreibung": "Wenn dich ein Kind oder ein Erwachsener etwas fragt, dann gibst du eine verst\u00e4ndliche Antwort, die wirklich auch mit der Frage zu tun hat. Wenn dich ein Kind oder ein Erwachsener auffordert, etwas zu tun oder zu lassen, dann antwortest du auch verst\u00e4ndlich auf die Aufforderung.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -108,7 +28,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 10",
             "ZieleStichwort": "K 10 Vokabular",
-            "ZieleBeschreibung": "Wenn ein Kind oder ein Erwachsener so mit Ihrem Kind spricht, wie ein normaler Dreij\u00e4hriger \/ Vierj\u00e4hriger \/ F\u00fcnfj\u00e4hriger ... das verstehen w\u00fcrde, dann versteht das Kind tats\u00e4chlich, was gemeint ist. Man muss mit ihm nicht sprechen wie mit einem vielleicht zwei Jahre j\u00fcngeren Kind. ",
+            "ZieleBeschreibung": "Wenn ein Kind oder ein Erwachsener so mit dir spricht, wie das ein Kind in deinem Alter normalerweise versteht, dann verstehst du tats\u00e4chlich, was gemeint ist. Man muss mit dir nicht sprechen wie mit einem vielleicht zwei Jahre j\u00fcngeren Kind, damit du verstehst, was gemeint ist.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -117,7 +37,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 11",
             "ZieleStichwort": "K 11 Wortsequenzen",
-            "ZieleBeschreibung": "Das Kind spricht von sich aus ohne Aufforderung in verst\u00e4ndlichen, freundlichen S\u00e4tzen, wenn \u2026es ein Kind oder einen Erwachsenen etwas fragt, \u2026es will, dass das andere Kind oder der Erwachsene etwas tut, \u2026es etwas haben will.",
+            "ZieleBeschreibung": "Du sprichst ganz von selbst in verst\u00e4ndlichen, freundlichen S\u00e4tzen, wenn du ein Kind oder einen Erwachsenen etwas fragst oder wenn du willst, dass jemand etwas tut oder du etwas haben willst. Deine Fragen oder Aufforderungen haben etwas mit der Sache zu tun und wirken nicht st\u00f6rend.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -126,7 +46,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 12",
             "ZieleStichwort": "K 12 Austausch- Erwachsen",
-            "ZieleBeschreibung": "Es macht dem Kind Spa\u00df, einem Erwachsenen von sich aus etwas zu erz\u00e4hlen, ohne dass dieser erst fragen muss.",
+            "ZieleBeschreibung": "Es ist dir wichtig, einem Erwachsenen von dir aus etwas zu erz\u00e4hlen, ohne dass er erst fragen muss.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -135,7 +55,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 13",
             "ZieleStichwort": "K 13 Merkmale",
-            "ZieleBeschreibung": "Das Kind beschreibt zum Beispiel, \u2026wie es selbst aussieht oder wie ein anderer Mensch aussieht, \u2026wie es sich bewegt oder ein anderer sich bewegt, \u2026was es selbst gern mag oder was ein anderer gern mag \u2026was er gern tut und so weiter. (Fragen oder Hinweise erlaubt.)",
+            "ZieleBeschreibung": "Du kannst beschreiben, wie du selbst aussiehst oder wie ein anderer Mensch aussieht. Du beschreibst auch, was du selbst kannst oder was ein anderer Mensch kann. Du beschreibst, was ein anderer Mensch gern mag oder nicht gern mag, was du gern magst oder nicht gern magst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -144,7 +64,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 14",
             "ZieleStichwort": "K 14 Austausch- Kind",
-            "ZieleBeschreibung": "Es macht dem Kind Spa\u00df, einem anderen Kind von sich aus etwas zu erz\u00e4hlen, ohne dass das andere Kind erst fragen muss. (Bitten\/Forderungen oder Fragen gelten nicht als Merkmale f\u00fcr die Bew\u00e4ltigung der F\u00e4higkeit.)",
+            "ZieleBeschreibung": "Es ist dir wichtig, einem anderen Kind von dir aus etwas zu erz\u00e4hlen, ohne dass es erst fragen muss.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -161,7 +81,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 15",
             "ZieleStichwort": "K 15 Pers\u00f6hnliches",
-            "ZieleBeschreibung": "Ohne dass jemand danach fragen muss, beschreibt das Kind von selbst, was es erlebt hat. Oder es  beschreibt, was es \u00fcber eine Sache denkt. Oder es beschreibt, welche Arbeit es getan hat.",
+            "ZieleBeschreibung": "Ohne dass dich jemand danach fragen muss, beschreibst du von selbst, was du erlebt hast. Oder du beschreibst, was du \u00fcber eine Sache denkst. Oder du beschreibst, welche Arbeit du getan hast.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -170,7 +90,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 16",
             "ZieleStichwort": "K 16 Gef\u00fchlsreaktionen",
-            "ZieleBeschreibung": "Wenn dem Kind eine Sache oder ein Tier oder ein Mensch gef\u00e4llt, oder wenn es sich \u00fcber etwas freut, dann beschreibt es dieses Gef\u00fchl mit angemessenen Worten. Wenn es jemanden oder etwas nicht mag, dann dr\u00fcckt es dieses Gef\u00fchl auch angemessenen aus, ebenso Angst oder Wut, ohne ausfallend zu werden.",
+            "ZieleBeschreibung": "Wenn dir eine Sache oder ein Tier oder ein Mensch gef\u00e4llt oder wenn du dich \u00fcber etwas freust, dann beschreibst du dieses Gef\u00fchl mit passenden Worten. Wenn du jemanden oder etwas nicht magst, dann dr\u00fcckst du dieses Gef\u00fchl auch richtig aus, ebenso Angst oder Wut. Keine Albernheiten, kein Rumtoben, keine Ausdr\u00fccke.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -179,7 +99,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 17",
             "ZieleStichwort": "K 17 Gespr\u00e4che ",
-            "ZieleBeschreibung": "Wenn die Familie oder eine Gruppe \u00fcber etwas diskutiert, dann beteiligt sich das Kind so am  Gespr\u00e4ch, dass alle sich wohlf\u00fchlen und sich weiter \u00e4u\u00dfern m\u00f6chten.. ",
+            "ZieleBeschreibung": "Wenn deine Gruppe oder deine Klasse oder deine Familie \u00fcber etwas diskutiert, dann beteiligst du dich so am Gespr\u00e4ch, dass alle etwas davon haben und sich wohlf\u00fchlen.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -188,7 +108,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 18",
             "ZieleStichwort": "K 18 Stolz- ich",
-            "ZieleBeschreibung": "Das Kind ist stolz auf die Arbeit, die es geleistet hat, und spricht das auch aus oder zeigt es. Es merkt, wenn es etwas gut gemacht hat, und sagt \u00fcber sich selbst etwas Gutes, ohne dass ein Erwachsener es dazu auffordern muss.",
+            "ZieleBeschreibung": "Du bist stolz auf die Arbeit, die du geleistet hast und sprichst das auch aus oder du zeigst es. Du merkst, wenn du etwas gut gemacht hast und sprichst das auch aus oder du zeigst es. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -197,7 +117,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 19",
             "ZieleStichwort": "K 19 Eigenschaften \u2013 ich ",
-            "ZieleBeschreibung": "Das Kind beschreibt sich selbst so, dass jeder es nach der Beschreibung erkennen w\u00fcrde. Es  beschreibt sein Aussehen, sein Verhalten, was es kann und gern tut, was es nicht kann und nicht gern tut, und wo es empfindlich reagiert.",
+            "ZieleBeschreibung": "Du beschreibst dich selbst so, dass jeder dich nach der Beschreibung erkennen w\u00fcrde. Du beschreibst dein Aussehen, dein Verhalten, was du kannst und gern tust, was du nicht kannst und nicht gern tust und wo du empfindlich reagierst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -206,7 +126,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 20",
             "ZieleStichwort": "K 20 Attribute \u2013 du",
-            "ZieleBeschreibung": "Das Kind beschreibt andere so, dass jeder sie nach der Beschreibung erkennen w\u00fcrde. Es beschreibt ihr Aussehen, ihr Verhalten und ihre Eigenschaften. ",
+            "ZieleBeschreibung": "Du beschreibst andere so, dass jeder sie nach der Beschreibung erkennen w\u00fcrde. Du beschreibst ihr Aussehen, ihr Verhalten, ihre Eigenschaften.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -215,7 +135,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 21",
             "ZieleStichwort": "K 21 Gef\u00fchle \u2013 du",
-            "ZieleBeschreibung": "Das Kind beschreibt, wie sich ein anderer Mensch f\u00fchlt, entweder, wenn jemand danach fragt oder auch von ganz alleine.",
+            "ZieleBeschreibung": "Du beschreibst, was ein anderer Mensch f\u00fchlt - entweder, wenn dich jemand danach fragt oder auch von ganz alleine. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -224,7 +144,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 22",
             "ZieleStichwort": "K 22 Stolz \u2013 wir",
-            "ZieleBeschreibung": "Das Kind ist stolz auf die Leistungen seiner Gruppe oder seiner Klasse oder auf die Familie und spricht das auch aus. Es erlebt sich selbst als Mitglied der Gruppe oder der Familie.",
+            "ZieleBeschreibung": "Du bist stolz auf die Leistungen deiner Gruppe oder deiner Klasse und sprichst das auch aus. Du f\u00fchlst dich als Teil der Gruppe. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -241,7 +161,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 23",
             "ZieleStichwort": "K 23 Kreativit\u00e4t",
-            "ZieleBeschreibung": "Wenn das Kind etwas Besonderes erlebt hat, oder wenn es sich freut, w\u00fctend ist, Angst hat und so weiter, dann dr\u00fcckt es diese Gef\u00fchle (bei Gelegenheit) aus, z.B.: \r\n- in einem Bild - in einem Theaterspiel\r\n- in Musik - gestalterisch mit Ton.\r\n",
+            "ZieleBeschreibung": "Wenn du etwas Besonderes erlebt hast oder wenn du dich freust, w\u00fctend bist, Angst hast und so weiter, dann dr\u00fcckst du diese Gef\u00fchle in einem Bild oder in einem Theaterspiel oder in Musik aus oder du formst zum Beispiel etwas aus Ton. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -250,7 +170,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 24",
             "ZieleStichwort": "K 24 Fortschritt",
-            "ZieleBeschreibung": "Das Kind beschreibt selbst, welche Fortschritte es im Verhalten macht, vielleicht auch mit Ihrer Hilfe. [Genau wie Verhalten V-22]",
+            "ZieleBeschreibung": "Du beschreibst selbst, welche Fortschritte du im Verhalten machst, vielleicht auch mithilfe eines Erwachsenen. [Genau wie Verhalten V-22]",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -259,7 +179,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 25",
             "ZieleStichwort": "K 25 Beeinflussung",
-            "ZieleBeschreibung": "Das Kind beschreibt, wie sein eigenes Verhalten andere Kinder oder Erwachsene beeinflusst, vielleicht nachdem Sie dazu eine Frage gestellt haben. ",
+            "ZieleBeschreibung": "Wenn ein Erwachsener dich danach fragt oder dich darauf aufmerksam macht, dann beschreibst du, wie dein eigenes Verhalten andere Kinder oder Erwachsene beeinflusst. Wenn du zum Beispiel jemanden provoziert hast, dann wei\u00dft du genau, dass dein eigenes Verhalten der Grund war, warum der andere sauer reagierte.  ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -268,7 +188,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 26",
             "ZieleStichwort": "K 26 Gef\u00fchle \u2013 ich",
-            "ZieleBeschreibung": "Das Kind beschreibt anderen Kindern gegen\u00fcber seine Gef\u00fchle, ohne dass jemand danach fragen muss. Es beschreibt diese Gef\u00fchle mit angemessenen Worten und\/oder Gesten. ",
+            "ZieleBeschreibung": "Du beschreibst deinen Mitsch\u00fclern oder anderen Kindern deine Gef\u00fchle, ohne dass dich jemand danach fragen muss. Du beschreibst diese Gef\u00fchle mit vern\u00fcnftigen Worten, ohne zu meckern oder zu schimpfen oder zu heulen. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -277,7 +197,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 27",
             "ZieleStichwort": "K 27 Beziehung",
-            "ZieleBeschreibung": "Das Kind m\u00f6chte gern Kontakt zu einem anderen Kind oder einem Erwachsenen aufnehmen. Es tut das auf eine angemessene und angenehme Weise mit Worten und\/oder Gesten sowohl bei Kindern als auch Erwachsenen.",
+            "ZieleBeschreibung": "Du m\u00f6chtest gern Kontakt zu einem Kind oder einem Erwachsenen aufnehmen. Du tust das so, dass der andere das angenehm findet. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -286,7 +206,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 28",
             "ZieleStichwort": "K 28 unterst\u00fctzen",
-            "ZieleBeschreibung": "Wenn sich die Gelegenheit ergibt, lobt das Kind andere oder unterst\u00fctzt sie mit Worten und\/oder Gesten.",
+            "ZieleBeschreibung": "Wenn sich die Gelegenheit ergibt, lobst du andere und unterst\u00fctzt sie mit Worten.  ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -295,7 +215,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 29",
             "ZieleStichwort": "K 29 Relationen",
-            "ZieleBeschreibung": "Das Kind erkennt von ganz allein, wie sein eigenes Verhalten das Verhalten anderer beeinflusst oder wie seine eigenen Gef\u00fchle auf die Gef\u00fchle anderer",
+            "ZieleBeschreibung": "Du erkennst von ganz allein, wie dein eigenes Verhalten das Verhalten anderer beeinflusst oder wie deine eigenen Gef\u00fchle auf die Gef\u00fchle anderer wirken, und du kannst diesen Zusammenhang beschreiben. Du siehst zum Beispiel, wenn du selber unfreundlich warst, wie das die anderen unfreundlich gemacht hat.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -312,7 +232,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 30",
             "ZieleStichwort": "K 30 komplexe Aussagen",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche macht \u00c4u\u00dferungen, die\u2026\r\n\u2026 inhaltlich abstrakt sind oder\r\n\u2026mit intelligenten Vergleichen arbeiten.\r\nDie \u00c4u\u00dferungen sind meist vielgestaltig und komplex.\r\n",
+            "ZieleBeschreibung": "Du machst kluge \u00c4u\u00dferungen und benutzt treffende Vergleiche, um Gedanken, Vorg\u00e4nge und Situationen zu beschreiben. Du sprichst interessant und ausgewogen.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -321,7 +241,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 31",
             "ZieleStichwort": "K 31 Ausgleich",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche zeigt spontan - d.h. ohne Hilfe von Erwachsenen - die F\u00e4higkeit, in Streitsituationen oder bei Provokationen in der Gruppe sprachlich schlichtend zu reagieren.",
+            "ZieleBeschreibung": "Du zeigst spontan - d.h. ohne Hilfe von Erwachsenen - die F\u00e4higkeit, in Streitsituationen oder bei Provokationen in der Gruppe sprachlich so zu reagieren, dass du ausgleichend wirkst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -330,7 +250,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 32",
             "ZieleStichwort": "K 32 Anerkennung",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche erkennt die Beitr\u00e4ge anderer an. Sie bzw. er unterst\u00fctzt andere, indem er ihre Meinungen aufnimmt und sie in die eigenen \u00dcberlegungen einbezieht.",
+            "ZieleBeschreibung": "Du unterst\u00fctzt andere, indem du ihre Meinungen anerkennst, und beziehst spontan deren Kommentare oder Vorstellungen in die eigenen \u00dcberlegungen ein.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -339,7 +259,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 33",
             "ZieleStichwort": "K 33 Motive",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche beschreibt Gr\u00fcnde, warum Menschen im Umgang mit anderen so handeln. Sie bzw. er beschreibt Wertvorstellungen, aus denen Menschen im Umgang mit anderen handeln. (Die Jugendliche\/der Jugendliche beschreibt verschiedene Perspektiven desselben Problems.)",
+            "ZieleBeschreibung": "Du beschreibst Gr\u00fcnde, warum Menschen im Umgang mit anderen so handeln sowie Wertvorstellungen, aus denen Menschen im Umgang mit anderen handeln. (Du beschreibst verschiedene Perspektiven desselben Problems.)",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -348,7 +268,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 34",
             "ZieleStichwort": "K 34 Ideale",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche dr\u00fcckt eigene Wertvorstellungen, Ideale und \u00dcberzeugungen spontan aus ohne Unterst\u00fctzung Erwachsener.",
+            "ZieleBeschreibung": "Du sprichst von selbst \u00fcber eigene Wertvorstellungen, Ideale und \u00dcberzeugungen ohne Unterst\u00fctzung Erwachsener.  ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -357,87 +277,7 @@
             "BereichID": "1",
             "ZieleNummer": "K 35",
             "ZieleStichwort": "K 35 Erhalt\/ Pflege",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche setzt sprachliche F\u00e4higkeiten im Umgang mit anderen ein, um Beziehungen zu einzelnen (Freund oder Kameraden) oder zu mehreren (Gruppe oder Familie) zu erhalten und zu pflegen.",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "",
-            "ZieleStichwort": "Stufe :1 Mit Freude auf die Umwelt reagieren.Gebraucht W\u00f6rter, um Bed\u00fcrfnisse zu befriedigen.",
-            "ZieleBeschreibung": "",
-            "Notizen": ""
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 1",
-            "ZieleStichwort": "V 1 Bewusstheit",
-            "ZieleBeschreibung": "Das Kind reagiert minimal auf eine Wahrnehmung: \r\no eine Ber\u00fchrung \r\no ein Ger\u00e4usch \r\no eine Bewegung\r\no einen Geschmack \r\no etwas das es sieht \r\no einen Geruch\r\n(Wenigstens 2 von 6 F\u00e4higkeiten, die Sie auf den letzten Seiten in\r\nden Beispielen beschrieben finden, m\u00fcssen vorhanden sein.)\r\n",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 2",
-            "ZieleStichwort": "V 2 Orientierung",
-            "ZieleBeschreibung": "Das Kind reagiert mit Bewegungen oder mit einem Blick auf eine Ber\u00fchrung, ein Ger\u00e4usch, eine Bewegung, etwas, das es sieht oder riecht oder schmeckt. Diese Reaktion wird daran sichtbar, dass es sich zu dem Ger\u00e4usch, der Bewegung usw. hinwendet. (Wenigstens bei zwei von den sechs Arten muss eine Reaktion kommen.)",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 3",
-            "ZieleStichwort": "V 3 Aufmerksamkeit",
-            "ZieleBeschreibung": "Das Kind reagiert auf einen Reiz aufmerksam. Diese Aufmerksamkeit bleibt eine kurze Zeit bestehen. Das Kind bleibt also f\u00fcr kurze Zeit noch weiter aufmerksam, nachdem die erste Reaktion schon vorbei ist. ",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 4",
-            "ZieleStichwort": "V 4 motorische Reaktion",
-            "ZieleBeschreibung": "Das Kind reagiert spontan - das hei\u00dft ohne Hilfe oder Aufforderung - auf einen einfachen Umweltreiz mit einer Bewegung. (Um die F\u00e4higkeit als bew\u00e4ltigt einzusch\u00e4tzen, muss das Kind sowohl auf Gegenst\u00e4nde und Personen als auch auf Ger\u00e4usche reagieren.)",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 5",
-            "ZieleStichwort": "V 5 komplexe Reaktion",
-            "ZieleBeschreibung": "Das Kind reagiert mit Bewegungen auf kompliziertere Umweltreize oder auf das, was Sie sagen. (Um die F\u00e4higkeit als bew\u00e4ltigt einzusch\u00e4tzen, soll das Kind in folgender Weise reagieren: Es ahmt Sie nach, oder es folgt Ihrer Aufforderung, oder es erinnert sich daran, wie etwas abl\u00e4uft, und wiederholt es.) ",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 6",
-            "ZieleStichwort": "V 6 Selbsthilfe",
-            "ZieleBeschreibung": "Das Kind beteiligt sich aktiv daran zu lernen, wie man sich selbst versorgt (H\u00e4nde waschen, essen, die Toilette benutzen, anziehen etc.). Es kommt nicht darauf an, dass das Kind sich wirklich selbst versorgt, sondern nur, dass es sich daran beteiligt, und zwar passend zu seinem Alter.",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 7",
-            "ZieleStichwort": "V 7 Spielmaterial ",
-            "ZieleBeschreibung": "Das Kind reagiert auf verschiedenes Spielzeug. (Sie unterst\u00fctzen das Kind eventuell dabei durch Hinweise.) Das Kind muss nicht seinem Alter gem\u00e4\u00df spielen, damit die F\u00e4higkeit als bew\u00e4ltigt eingesch\u00e4tzt wird. Es kommt nur darauf an, dass es auf verschiedenes Spielzeug \u00fcberhaupt reagiert.",
-            "Notizen": "Notizen",
-            "newSelect0": "sp\u00e4ter"
-        },
-        {
-            "Stufe": "1",
-            "BereichID": "2",
-            "ZieleNummer": "V 8",
-            "ZieleStichwort": "V 8 Routineabl\u00e4ufe",
-            "ZieleBeschreibung": "Das Kind erinnert sich, wo in der Wohnung bestimmte Aktivit\u00e4ten immer stattfinden, und geht dorthin, wenn die Aktivit\u00e4t ansteht. (Sie helfen dem Kind eventuell durch Ber\u00fchrung oder durch Hinweise.) Wenn es z.B. hei\u00dft: \u201eWir essen jetzt\u201c, geht das Kind zum Esstisch, wenn es hei\u00dft: \u201eDu kannst jetzt spielen\u201c, geht es in die Spielecke.",
+            "ZieleBeschreibung": "Du setzt sprachliche F\u00e4higkeiten im Umgang mit anderen ein, um Beziehungen zu einzelnen (Freund oder Mitsch\u00fcler) oder zu mehreren (Gruppe oder Familie) zu erhalten und zu pflegen. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -454,7 +294,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 9",
             "ZieleStichwort": "V 9 Spielerfahrung",
-            "ZieleBeschreibung": "Das Kind nutzt Spielsachen sachgerecht und spielt fantasievoll damit.",
+            "ZieleBeschreibung": "Du l\u00e4sst die Spielsachen heil und denkst dir immer wieder neue,\r\nsch\u00f6ne oder spannende Sachen aus, die man damit spielen kann.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -463,7 +303,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 10",
             "ZieleStichwort": "V 10 warten",
-            "ZieleBeschreibung": "Das Kind ist in einer kleinen Gruppe: Es wartet, wenn Sachen ausgeteilt werden, oder bis es an der Reihe ist, ohne dass Sie (oder ein anderer Erwachsener) es k\u00f6rperlich zur\u00fcckhalten oder an der Hand halten m\u00fcssen. Es reicht, wenn Sie z. B. sagen: \u201eDu kommst auch gleich dran.\u201c Oder Sie tippen es leicht an. [Gleich mit SOZ-14.]",
+            "ZieleBeschreibung": "Du bist mit einigen Kindern in einer Gruppe zusammen: Du wartest, wenn Sachen ausgeteilt werden oder bis du an der\r\nReihe bist, ohne dass ein Erwachsener dich dabei an die Hand nehmen oder festhalten muss. Es reicht, wenn der Erwachsene dich\r\nkurz daran erinnert, dass du warten sollst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -472,7 +312,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 11",
             "ZieleStichwort": "V 11 sitzen",
-            "ZieleBeschreibung": "Das Kind bleibt an seinem Platz sitzen, zum Beispiel beim Essen oder wenn es die Hausaufgaben macht. Dabei h\u00f6rt es auf Ihre Anweisungen, spricht mit Ihnen und benutzt Gegenst\u00e4nde richtig. Eine freundliche Erinnerung von Ihnen oder kurz dem Kind die Hand auf die Schulter legen reicht, damit das Kind am Platz bleibt.",
+            "ZieleBeschreibung": "Du bist mit einigen Kindern in einer Gruppe zusammen: Du bleibst beim Rechnen oder Schreiben auf deinem Platz sitzen und beteiligst dich. Du bleibst beim Fr\u00fchst\u00fcck am Tisch und beim Spielen in der Spielecke. Dabei h\u00f6rst du auf Anweisungen eines Erwachsenen und gehst richtig mit den Sachen um. Eine kurze Erinnerung reicht.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -481,7 +321,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 12",
             "ZieleStichwort": "V 12 Bewegung",
-            "ZieleBeschreibung": "Das Kind macht \u2013 in einer kleinen Gruppe \u2013 mit bei gemeinsamen Spielen oder beim Sport oder \u00e4hnlichen Aktivit\u00e4ten, ohne dass Sie (oder ein anderer Erwachsener) es an die Hand nehmen m\u00fcssen. Ein aufmunternder Satz oder ein freundlicher Druck auf die Schulter reicht.",
+            "ZieleBeschreibung": "Du bist mit einigen Kindern in einer Gruppe zusammen: Du machst mit bei gemeinsamen Spielen oder beim Sport oder bei einem Tanzlied, ohne dass ein Erwachsener dich dabei an die Hand nehmen muss oder festhalten muss.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -490,7 +330,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 13",
             "ZieleStichwort": "V 13 Aktivit\u00e4ten",
-            "ZieleBeschreibung": "Das Kind macht \u2013 in einer kleinen Gruppe \u2013 von sich aus mit bei Spielen oder beim Sport und bei Aktivit\u00e4ten, bei denen es etwas lernen soll. Dabei beteiligt es sich an Gespr\u00e4chen oder fragt etwas. Sie brauchen nicht mehr aufzumuntern oder aufzufordern. (Unterst\u00fctzung mit Worten oder leichte Ber\u00fchrung sind in Ordnung.) ",
+            "ZieleBeschreibung": "Du bist mit einigen Kindern in einer Gruppe zusammen: Du machst ganz von selbst bei allen Arbeitsphasen oder bei Spielen oder beim Sport mit. Du beteiligst dich dabei von selbst an Gespr\u00e4chen oder du fragst etwas. Der Erwachsene braucht dich eventuell nur kurz zu erinnern, aber nicht festzuhalten.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -499,7 +339,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 14",
             "ZieleStichwort": "V 14 Lob\/ Erfolg",
-            "ZieleBeschreibung": "Wenn Sie Ihr Kind loben oder ihm sagen, was es gut gemacht hat, dann freut es sich dar\u00fcber, ohne albern oder w\u00fctend zu werden oder ablehnend zu reagieren.",
+            "ZieleBeschreibung": "Wenn der Lehrer oder die Lehrerin oder deine Eltern dich loben und dir sagen, was du gut gemacht hast, dann freust du dich dar\u00fcber. Du wirst nicht albern oder w\u00fctend.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -516,7 +356,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 15",
             "ZieleStichwort": "V 15 beenden",
-            "ZieleBeschreibung": "Ihr Kind beendet kurze Aufgaben, die es so \u00e4hnlich schon kennt, alleine. Das Kind fragt nicht um Hilfe. Es soll nicht notwendig sein, dass Sie ihm bei der Aufgabe helfen.",
+            "ZieleBeschreibung": "Du beendest kurze Aufgaben, die du so \u00e4hnlich schon kennst, alleine, ohne dass dir ein Erwachsener helfen muss und ohne dass du um Hilfe fragst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -525,7 +365,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 16",
             "ZieleStichwort": "V 16 Erwartungen",
-            "ZieleBeschreibung": "Das Kind beschreibt, was Sie als Eltern oder die Schule oder andere Gruppen von ihm erwarten, wie es sich verhalten soll. (Das Kind muss diese Erwartungen nicht unbedingt auch erf\u00fcllen, aber es muss sie nennen k\u00f6nnen.)",
+            "ZieleBeschreibung": "Du beschreibst, welches Verhalten deine Eltern, deine Lehrer oder deine Gruppe von dir erwarten.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -534,7 +374,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 17",
             "ZieleStichwort": "V 17 Begr\u00fcndung",
-            "ZieleBeschreibung": "Das Kind beschreibt, warum die Eltern oder seine Gruppe oder die Lehrer ein bestimmtes Verhalten erwarten. ",
+            "ZieleBeschreibung": "Du beschreibst, warum die Lehrer, deine Eltern oder deine Gruppe ein bestimmtes Verhalten von dir erwarten.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -543,7 +383,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 18",
             "ZieleStichwort": "V 18 Alternativen",
-            "ZieleBeschreibung": "Das Kind beschreibt, wie es sich in bestimmten Situationen angemessener verhalten kann. (Das Kind muss dieses andere Verhalten nicht unbedingt auch zeigen, aber es muss das angemessenere Verhalten benennen k\u00f6nnen.)",
+            "ZieleBeschreibung": "Du beschreibst, wie du dich selbst in bestimmten Situationen besser und angemessener verhalten kannst, und wie sich andere besser verhalten k\u00f6nnen.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -552,7 +392,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 19",
             "ZieleStichwort": "V 19 Gruppenwahl",
-            "ZieleBeschreibung": "Die Spielkameraden oder Geschwister w\u00e4hlen das Kind als Anf\u00fchrer. Das Kind behandelt alle in der Gruppe gerecht. - Die Gruppe bestimmt einen anderen als Anf\u00fchrer. Das Kind macht mit ohne Murren.",
+            "ZieleBeschreibung": "Die Gruppe w\u00e4hlt dich als Anf\u00fchrer. Du behandelst alle in der Gruppe gerecht und nutzt es nicht aus, dass du Anf\u00fchrer bist. Die Gruppe w\u00e4hlt einen anderen als Anf\u00fchrer. Du machst mit, ohne zu meckern. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -561,7 +401,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 20",
             "ZieleStichwort": "V 20 zur\u00fcckhalten",
-            "ZieleBeschreibung": "Wenn z. B. ein Spielkamerad oder ein Bruder \/ eine Schwester ein st\u00f6rendes Verhalten zeigt, macht das Kind nicht mit. Es gen\u00fcgt, wenn Sie es eventuell kurz an das angemessene Verhalten erinnern.",
+            "ZieleBeschreibung": "Wenn andere aus der Gruppe st\u00f6ren oder durchdrehen, machst du nicht mit und es gen\u00fcgt, wenn dich ein Erwachsener kurz daran erinnert.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -570,7 +410,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 21",
             "ZieleStichwort": "V 21 Kontrolle",
-            "ZieleBeschreibung": "Das Kind macht bei gemeinsamen Aktionen in der Familie oder in der Schule mit und h\u00e4lt sich dabei k\u00f6rperlich und sprachlich unter Kontrolle. Das gilt auch, wenn es in einen anderen Raum geht oder den Platz wechselt oder z.B. an einem Ausflug teilnimmt. (Sie k\u00f6nnen Strukturierung und Unterst\u00fctzung einsetzen.).",
+            "ZieleBeschreibung": "Du machst bei allen Aktionen im Unterricht mit und achtest dabei auf angemessenes Verhalten. Auch sprachlich h\u00e4ltst du dich unter Kontrolle. Das gilt f\u00fcr alle F\u00e4cher und auch, wenn du den Platz oder den Raum wechselst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -587,7 +427,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 22",
             "ZieleStichwort": "V 22 Fortschritt",
-            "ZieleBeschreibung": "Das Kind beschreibt selbst, welche Fortschritte es im Verhalten macht, vielleicht auch mit Ihrer Hilfe bei der Beschreibung.",
+            "ZieleBeschreibung": "Du beschreibst selbst, welche Fortschritte du im Verhalten machst, vielleicht auch mithilfe eines Erwachsenen.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -596,7 +436,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 23",
             "ZieleStichwort": "V 23 Flexibilit\u00e4t",
-            "ZieleBeschreibung": "Es gibt eine notwendige \u00c4nderung im (Tages)-ablauf. Das Kind akzeptiert die Ver\u00e4nderung. Es wird nicht \u00e4rgerlich oder unruhig.",
+            "ZieleBeschreibung": "Es l\u00e4uft etwas anders als eigentlich geplant, weil deine Gruppe das so beschlossen hat oder weil die Umst\u00e4nde sich ver\u00e4ndert haben. Du akzeptierst die Ver\u00e4nderung und wirst nicht \u00e4rgerlich oder unruhig.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -605,7 +445,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 24",
             "ZieleStichwort": "V 24 neue Erfahrungen",
-            "ZieleBeschreibung": "Das Kind hat noch nie bei einer Sache mitgemacht (Eis laufen, in die B\u00fccherei gehen ...). Trotzdem macht es jetzt ohne Probleme mit und beh\u00e4lt dabei die Selbstbeherrschung. ",
+            "ZieleBeschreibung": "Du hast noch nie bei einer Sache mitgemacht (Eislaufen, in die B\u00fccherei gehen ...). Trotzdem machst du ohne Probleme mit und die Erwachsenen brauchen dir nicht zuzureden. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -614,7 +454,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 25",
             "ZieleStichwort": "V 25 anwenden",
-            "ZieleBeschreibung": "Das Kind wei\u00df nicht nur, wie man sich in bestimmten Situationen oder anderen Menschen gegen\u00fcber anders und besser verhalten kann, sondern es tut das auch.",
+            "ZieleBeschreibung": "Du wei\u00dft nicht nur, wie du dich in der Schule und zu Hause anders und vor allem besser verhalten kannst, sondern du verh\u00e4ltst dich auch tats\u00e4chlich anders und besser.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -623,7 +463,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 26",
             "ZieleStichwort": "V 26 Provokation",
-            "ZieleBeschreibung": "Das Kind wird ge\u00e4rgert und jemand m\u00f6chte es zu unangemessenem Verhalten anstiften. Das Kind beh\u00e4lt die Selbstkontrolle und l\u00e4sst sich nicht darauf ein.",
+            "ZieleBeschreibung": "Ein Mitsch\u00fcler will dich \u00e4rgern oder dich zu irgendetwas anstiften. Du bleibst cool und l\u00e4sst dich nicht darauf ein.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -632,7 +472,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 27",
             "ZieleStichwort": "V 27 Verantwortung",
-            "ZieleBeschreibung": "Das Kind akzeptiert, dass es f\u00fcr das, was es tut, auch verantwortlich ist. Es akzeptiert auch, dass es f\u00fcr seine \u00dcberzeugungen und Meinungen verantwortlich ist.",
+            "ZieleBeschreibung": "Du zeigst, dass du f\u00fcr die Folgen deiner Handlungen Verantwortung \u00fcbernimmst. Du zeigst auch, dass du f\u00fcr das, was du meinst und sagst, Verantwortung \u00fcbernimmst. ",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -641,7 +481,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 28",
             "ZieleStichwort": "V 28 L\u00f6sungsvorschlag",
-            "ZieleBeschreibung": "Zwischen dem Kind und einem Spielkameraden oder in der Familie gibt es ein Problem. Das Kind macht einen hilfreichen Vorschlag, wie man das Problem l\u00f6sen k\u00f6nnte. Eventuell unterst\u00fctzen Sie das Kind dabei, einen Vorschlag zu finden.",
+            "ZieleBeschreibung": "Zwischen dir und einem Mitsch\u00fcler oder in deiner Gruppe gibt es ein Problem. Du machst einen hilfreichen Vorschlag, wie man das Problem l\u00f6sen k\u00f6nnte. Eventuell hilft dir ein Erwachsener dabei.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -658,7 +498,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 29",
             "ZieleStichwort": "V 29 Gewohnheiten",
-            "ZieleBeschreibung": "In Orientierung auf die Arbeitswelt versucht die Jugendliche\/der Jugendliche, neue pers\u00f6nliche Gewohnheiten oder F\u00e4higkeiten zu entwickeln.",
+            "ZieleBeschreibung": "Du versuchst, neue pers\u00f6nliche Gewohnheiten oder F\u00e4higkeiten zu entwickeln, die in Verbindung mit der Arbeitswelt stehen.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -667,7 +507,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 30",
             "ZieleStichwort": "V 30 positive Rolle",
-            "ZieleBeschreibung": "Der Jugendlichen\/dem Jugendlichen liegt daran, eine erw\u00fcnschte positive Rolle in einer Gruppe zu entwickeln. Sie bzw. er verh\u00e4lt sich entsprechend.",
+            "ZieleBeschreibung": "Dir liegt daran, eine erw\u00fcnschte positive Rolle in einer Gruppe zu entwickeln, und du verh\u00e4ltst dich entsprechend.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -676,7 +516,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 31",
             "ZieleStichwort": "V 31 Recht\/ Ordnung",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche versteht und akzeptiert Vorstellungen wie \u201eRecht und Ordnung\u201c in Schule und Gemeinschaft. Sie bzw. er entscheidet sich bewusst f\u00fcr entsprechende Verhaltensweisen oder \u00e4u\u00dfert sich entsprechend.",
+            "ZieleBeschreibung": "Du verstehst und akzeptierst Vorstellungen wie \u201eRecht und Ordnung\u201c in Schule und Gemeinschaft, indem du dich bewusst f\u00fcr entsprechende Verhaltensweisen entscheidest oder indem du entsprechende sprachliche Mittel einsetzt.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -685,7 +525,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 32",
             "ZieleStichwort": "V 32 Selbstbestimmung",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche billigt die Selbstverantwortung in einer Gruppe und bringt sich in die selbstgeregelten Prozesse ein. ",
+            "ZieleBeschreibung": "Du bef\u00fcrwortest die Selbstbestimmung in einer Gruppe und machst dabei mit.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },
@@ -694,7 +534,7 @@
             "BereichID": "2",
             "ZieleNummer": "V 33",
             "ZieleStichwort": "V 33 Einsicht",
-            "ZieleBeschreibung": "Die Jugendliche\/der Jugendliche l\u00f6st pers\u00f6nliche Probleme, indem sie\/er eigene Verhaltensweisen kritisch pr\u00fcft, Probleme analysiert und Erkenntnisse von einer Situation auf die andere \u00fcbertr\u00e4gt.",
+            "ZieleBeschreibung": "Du l\u00f6st pers\u00f6nliche Probleme, indem du eigene Verhaltensweisen kritisch pr\u00fcfst, Probleme analysierst und Erkenntnisse aus einer Situation auf die andere \u00fcbertr\u00e4gst.",
             "Notizen": "Notizen",
             "newSelect0": "sp\u00e4ter"
         },

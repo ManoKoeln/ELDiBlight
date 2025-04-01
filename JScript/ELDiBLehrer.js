@@ -15,6 +15,65 @@ xmlhttp.open("POST","ELDiBLehrer.php?ELDiBLehrerNew=true",false);
 xmlhttp.send();
 
 }
+function ShowELDiBEltern_New(){
+  console.log("Start ShowELDiBEltern");
+    // document.getElementById("ELDiBElterncontent_New").style.display = "block"; 
+    // document.getElementById("MainNavigation").style.display = "none";
+    // let MyVal = document.getElementById("SelectClient").value;
+    if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest(); } else { xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); }
+  xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        document.getElementById("Startseite").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+// xmlhttp.open("POST","ELDiBEltern_New.php?SetELDiBElternNew="+MyVal,false);
+xmlhttp.open("POST","ELDiBLehrer.php?SetELDiBEltern=true",false);
+xmlhttp.send();
+}
+
+function ShowELDiBKind_New(){
+  console.log("Start ShowELDiBKind");
+    // document.getElementById("ELDiBKindcontent_New").style.display = "block"; 
+    // document.getElementById("MainNavigation").style.display = "none";
+    // let MyVal = document.getElementById("SelectClient").value;
+    if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest(); } else { xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); }
+  xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        document.getElementById("Startseite").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+// xmlhttp.open("POST","ELDiBKind_New.php?SetELDiBKindNew="+MyVal,false);
+xmlhttp.open("POST","ELDiBLehrer.php?SetELDiBKind=true",false);
+xmlhttp.send();
+}
+
+function ShowELDiBLehrer_New(){
+  console.log("Start ShowELDiBLehrer");
+    // document.getElementById("ELDiBLehrercontent_New").style.display = "block"; 
+    // document.getElementById("MainNavigation").style.display = "none";
+    // let MyVal = document.getElementById("SelectClient").value;
+    if (window.XMLHttpRequest){ xmlhttp=new XMLHttpRequest(); } else { xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); }
+  xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        document.getElementById("Startseite").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+// xmlhttp.open("POST","ELDiBLehrer_New.php?SetELDiBLehrerNew="+MyVal,false);
+xmlhttp.open("POST","ELDiBLehrer.php?SetELDiBLehrer=true",false);
+xmlhttp.send();
+}
+
+
+
 function ShowELDiBLehrer_JSON(){
   console.log("Start ShowELDiBLehrer_JSON");
     

@@ -35,16 +35,40 @@ $Inhalt = '';
   $Inhalt.= '<hr class="featurette-divider">';
   $Inhalt.= '<table class="table table-sm table-borderless">';
     $Inhalt.= '<tr>';
-    $Inhalt.= '<td><button typ="button" class="btn-primary "  style="display: none;" onclick="ShowELDiBLehrerNew(\'JSON/VorlageEltern.json\',true);">ELDiB Lehrer</button></td>';    
+    $Inhalt.= '<td><button typ="button" class="btn-primary "  style="display: none;" onclick="ShowELDiBLehrer_New();">ELDiB Lehrer Import von DB nach JSON</button></td>';    
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
+    // $Inhalt.= '<td>
+    //  <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBLehrerNew();">ELDiB Lehrerneu </button>
+    //  <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBLehrerFirstTemplate();" >ELDiB Lehrer erste Vorlage Stufendaten aus Datenbank</button> 
+    //  <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBLehrerOpen();">ELDiB Lehrer öffnen</button>
+    // <button typ="button" class="btn-primary "  onclick="ShowELDiBLehrer_JSON();">ELDiB  Bewertungsbogen</button>
+    // </td>';    //style="display:none;"
     $Inhalt.= '<td>
-    <button typ="button" class="btn-primary "  style="display: none;" onclick="ELDiBLehrerNew();">ELDiB Lehrerneu </button>
-    <button typ="button" class="btn-primary "  style="display: none;" onclick="ELDiBLehrerFirstTemplate();" >ELDiB Lehrer erste Vorlage Stufendaten aus Datenbank</button> 
-    <button typ="button" class="btn-primary "  style="display: none;" onclick="ELDiBLehrerOpen();">ELDiB Lehrer öffnen</button>
-    <button typ="button" class="btn-primary "  onclick="ShowELDiBLehrer_JSON();">ELDiB Lehrer Bewertungsbogen</button>
-    </td>';    //style="display:none;"
+   <button typ="button" class="btn-primary "  onclick="ShowELDiBLehrer_JSON();">ELDiB  Bewertungsbogen</button>
+   </td>';    //style="display:none;"
     $Inhalt.= '</tr>';
+    $Inhalt.= '<tr>';
+    $Inhalt.= '<td><button typ="button" class="btn-primary " style="display: none;"  onclick="ShowELDiBKind_New();">ELDiB Kind Import von DB nach JSON</button></td>';    
+    $Inhalt.= '</tr>';
+    $Inhalt.= '<tr>';
+    // $Inhalt.= '<td>
+    // <button typ="button" class="btn-primary "   onclick="ELDiBKindNew();">ELDiB Kindneu </button>
+    // <button typ="button" class="btn-primary "   onclick="ELDiBKindFirstTemplate();" >ELDiB Kind erste Vorlage Stufendaten aus Datenbank</button> 
+    // <button typ="button" class="btn-primary "   onclick="ELDiBKindOpen();">ELDiB Kind öffnen</button>
+    //     </td>';    //style="display:none;"
+    // $Inhalt.= '</tr>';
+    $Inhalt.= '<tr>';
+    $Inhalt.= '<td><button typ="button" class="btn-primary "  style="display: none;" onclick="ShowELDiBEltern_New();">ELDiB Eltern Import von DB nach JSON</button></td>';    
+    $Inhalt.= '</tr>';
+
+    // $Inhalt.= '<tr>';
+    // $Inhalt.= '<td>
+    // <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBElternNew();">ELDiB Elternneu </button>
+    // <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBElternFirstTemplate();" >ELDiB Eltern erste Vorlage Stufendaten aus Datenbank</button> 
+    // <button typ="button" class="btn-primary " style="display: none;"  onclick="ELDiBElternOpen();">ELDiB Eltern öffnen</button>
+    //     </td>';    //style="display:none;"
+    // $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
       $Inhalt.= '<td><button typ="button" class="btn-primary "  style="display: none;" onclick="ShowELDiBKind();">ELDiB Kind</button></td>';
     $Inhalt.= '</tr>';

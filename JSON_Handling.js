@@ -21,8 +21,31 @@ function handleFileSelect(event) {
         reader.readAsText(file);
     }
 }
-function NewJSON() {
+function NewJSONLehrer() {
     fetch('JSON/VorlageLehrer.json')
+        .then(response => response.json())
+        .then(data => {
+            tableData = data;
+            // Anzahl der zusätzlichen Spalten ermitteln
+            additionalColumns = getMaxAdditionalColumns(tableData.details);
+            renderTable();
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+}
+
+function NewJSONKind() {
+    fetch('JSON/VorlageKind.json')
+        .then(response => response.json())
+        .then(data => {
+            tableData = data;
+            // Anzahl der zusätzlichen Spalten ermitteln
+            additionalColumns = getMaxAdditionalColumns(tableData.details);
+            renderTable();
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+}
+function NewJSONEltern() {
+    fetch('JSON/VorlageEltern.json')
         .then(response => response.json())
         .then(data => {
             tableData = data;
@@ -63,18 +86,45 @@ function renderTable() {
     // Add table headers
 
 
+    const thead = document.createElement('thead');
+    const trHeader = document.createElement('tr');
+
     const thZieleStichwort = document.createElement('th');
     thZieleStichwort.textContent = 'Stichwort';
     thZieleStichwort.id = 'HeadZieleStichwort';
-    table.appendChild(thZieleStichwort);
+    trHeader.appendChild(thZieleStichwort);
+
     const thZieleBeschreibung = document.createElement('th');
     thZieleBeschreibung.textContent = 'Beschreibung';
     thZieleBeschreibung.id = 'HeadZieleBeschreibung';
-    table.appendChild(thZieleBeschreibung);
+    trHeader.appendChild(thZieleBeschreibung);
+
     const th3 = document.createElement('th');
     th3.textContent = 'Auswahl';
-    th3.id = 'HeadAuswahl'; 
-    table.appendChild(th3);
+    th3.id = 'HeadAuswahl';
+    trHeader.appendChild(th3);
+
+    thead.appendChild(trHeader);
+    table.appendChild(thead);
+
+    // Apply CSS to fix the header
+    table.style.position = 'relative';
+    table.style.borderCollapse = 'collapse';
+    thead.style.position = 'sticky';
+    thead.style.top = '0';
+    thead.style.backgroundColor = '#f1f1f1';
+    thead.style.zIndex = '1';
+    // thZieleStichwort.textContent = 'Stichwort';
+    // thZieleStichwort.id = 'HeadZieleStichwort';
+    // table.appendChild(thZieleStichwort);
+    // const thZieleBeschreibung = document.createElement('th');
+    // thZieleBeschreibung.textContent = 'Beschreibung';
+    // thZieleBeschreibung.id = 'HeadZieleBeschreibung';
+    // table.appendChild(thZieleBeschreibung);
+    // const th3 = document.createElement('th');
+    // th3.textContent = 'Auswahl';
+    // th3.id = 'HeadAuswahl'; 
+    // table.appendChild(th3);
 
 
     tableData.details.forEach((row, index) => {
@@ -88,6 +138,9 @@ function renderTable() {
             td.textContent = row.ZieleStichwort;
             td.classList.add('Stufe');
             td.id = `Stufe${ColumnIndex}`;
+            td.ondblclick = function() {
+                readText(this);
+            };
             tr.appendChild(td);
             table.appendChild(tr);
         } else {
@@ -106,11 +159,16 @@ function renderTable() {
             tdZieleStichwort.textContent = row.ZieleStichwort ;
             tdZieleStichwort.classList.add(`TabContent${row.BereichID}`);
             tdZieleStichwort.id = `ZieleStichwort_${ColumnIndex}`;
-
+            tdZieleStichwort.ondblclick = function() {
+                readText(this);
+            };
             const tdZieleBeschreibung = document.createElement('td');
             tdZieleBeschreibung.textContent = row.ZieleBeschreibung;
             tdZieleBeschreibung.classList.add(`TabContent${row.BereichID}`);
             tdZieleBeschreibung.id = `ZieleBeschreibung_${ColumnIndex}`;
+            tdZieleBeschreibung.ondblclick = function() {
+                readText(this);
+            };
             const td3 = document.createElement('td');
 
             // Div-Element, das den aktuellen Wert anzeigt
@@ -296,25 +354,23 @@ function exportTableToWord() {
         row.querySelectorAll('td').forEach((cell, cellIndex) => {
             if (cell.querySelector('select')) {
                 const div = cell.querySelector('div');
+                // if (div) {
                 rowData.push({
-                    text: div ? div.textContent : cell.textContent
-
-                // rowData.push({
-                //     // id: cell.id,
-                //     // text: cell.querySelector('select').value
-                //     text: cell.textContent
+                    text: div ? div.textContent : cell.textContent,
+                    // text: div ? div.textContent : cell.textContent
                 });
+            // }
             }
             else if (cell.querySelector('input')) {
                 const div = cell.querySelector('div');
                 rowData.push({
-                    text: div ? div.textContent : cell.textContent
+                    text: div ? div.textContent  : cell.textContent 
                 });
             } 
             else {
                 rowData.push({
                     id: cell.id,
-                    text: cell.textContent
+                    text: cell.textContent 
                 });
             }
         });
@@ -420,7 +476,7 @@ function saveAsJSON() {
             var ZieleNummerElement = document.getElementById(`ZieleNummer_${RowCount}`);
             var NotizenElement = document.getElementById(`Notizen_${RowCount}`);
             var row = {
-                Stufe: document.getElementById(`Stufe_${RowCount}`).innerText,
+                Stufe: document.getElementById(`Stufe${RowCount}`).innerText,
                 ZieleNummer: ZieleNummerElement ? ZieleNummerElement.innerText : '',
                 BereichID: document.getElementById(`BereichID_${RowCount}`).innerText,
                 ZieleStichwort: document.getElementById(`ZieleStichwort_${RowCount}`).innerText,

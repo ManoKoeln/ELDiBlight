@@ -43,25 +43,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
     $phpWord->addTableStyle('myTable', $tableStyle);
     $table = $section->addTable('myTable');
-    // Tabellenüberschriften hinzufügen
 
 
     foreach ($tableData as $row) {
-        $tableRow = $table->addRow();
+        // $tableRow = $table->addRow();
         if (count($row) === 1) {
+            
             // Wenn die Zeile nur eine Spalte hat, spannen Sie die Zelle über 3 Spalten
 
-            $tableRow->addCell(12000, ['gridSpan' => 3])->addText($row[0]['text']);
-            $headerRow = $table->addRow();
-             // Tabellenüberschriften hinzufügen
-            // $headerRow->addCell(2000)->addText('Nummer', ['bold' => true]);
-            $headerRow->addCell(4000)->addText($HeadZieleStichwort, ['bold' => true]);
-            $headerRow->addCell(6000)->addText($HeadZieleBeschreibung, ['bold' => true]);
-            $headerRow->addCell(2000)->addText($HeadAuswahl, ['bold' => true]);
+            // $tableRow->addCell(12000, ['gridSpan' => 3])->addText($row[0]['text']); //ORIGINAL
+            // if ($row[0]['text']) {
+            //     $tableRow->addCell(12000, ['gridSpan' => 3])->addText($row[0]['text']);
+            // } else {
+            //     $tableRow->addCell(12000, ['gridSpan' => 3])->addText(' ');
+            // }
+            // $tableRow->addCell(12000, ['gridSpan' => 3])->addText($row[0]['text'], ['bold' => true, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+            if (!empty($row[0]['text'])) {
+                
+                $cellText = isset($row[0]['text']) ? htmlspecialchars($row[0]['text'], ENT_QUOTES, 'UTF-8') : ' ';
+                if ($cellText != ' '){
+                $tableRow = $table->addRow();
+                $tableRow->addCell(12000, ['gridSpan' => 4])->addText($cellText);
+
+
+                $headerRow = $table->addRow();
+                // Tabellenüberschriften hinzufügen
+    
+                $headerRow->addCell(4000)->addText($HeadZieleStichwort, ['bold' => true]);
+                $headerRow->addCell(6000)->addText($HeadZieleBeschreibung, ['bold' => true]);
+                $headerRow->addCell(2000)->addText($HeadAuswahl, ['bold' => true]);
+                }
+                // $tableRow->addCell(12000, ['gridSpan' => 3])->addText('TEST');
+            } 
+            // else {
+            //     $tableRow->addCell(12000, ['gridSpan' => 3])->addText(' ');
+            // }
+            // $tableRow->addCell(12000, ['gridSpan' => 3, 'valign' => 'center'])->addText($row[0]['text'], ['bold' => true, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+            // $tableRow->addCell(12000, ['gridSpan' => 3, 'valign' => 'center'])->addText($row[0]['text'], ['bold' => true, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+
+
+            //###########################################
+            // $headerRow = $table->addRow();
+            //  // Tabellenüberschriften hinzufügen
+            // // $headerRow->addCell(2000)->addText('Nummer', ['bold' => true]);
+
+            // $headerRow->addCell(4000)->addText($HeadZieleStichwort, ['bold' => true]);
+            // $headerRow->addCell(6000)->addText($HeadZieleBeschreibung, ['bold' => true]);
+            // $headerRow->addCell(2000)->addText($HeadAuswahl, ['bold' => true]);
+
+            //######################################
+
             // $headerRow->addCell(4000)->addText('Stichwort', ['bold' => true]);
             // $headerRow->addCell(6000)->addText('Beschreibung', ['bold' => true]);
             // $headerRow->addCell(2000)->addText('Auswahl', ['bold' => true]);
-        } else {
+        } 
+        else {
+            $tableRow = $table->addRow();
             foreach ($row as $cell) {
                 $cellText = $cell['text'];
                 $cellOptions = [];
@@ -86,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $filename = "Tabelle.docx";
+    $filename = $validationVorname.' '.$validationName.' '.$validationKlasse.' '.$validationLehrer."Tabelle.docx";
     $temp_file = tempnam(sys_get_temp_dir(), $filename);
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
     $objWriter->save($temp_file);
