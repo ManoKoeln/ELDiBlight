@@ -56,6 +56,7 @@ function NewJSONEltern() {
         .catch(error => console.error('Error loading JSON:', error));
 }
 
+
 function getMaxAdditionalColumns(rows) {
     let maxColumns = 0;
     rows.forEach(row => {
@@ -281,6 +282,7 @@ function renderTable() {
 
     });
 }
+
 function setDivBackgroundColor(div, value) {
     switch (value) {
         case 'später':

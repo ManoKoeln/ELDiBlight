@@ -1,0 +1,40 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"dbs10487900"},
+{"type":"table","name":"massnahmen","database":"dbs10487900","data":
+[
+{"id":"2","FormulierungenID":"3","Text":"Geschichten erzählen","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"3","FormulierungenID":"3","Text":"Nacherzählungen","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"8","FormulierungenID":"6","Text":"Elterngespräch","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"34","FormulierungenID":"403","Text":"Elternbesuch","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"35","FormulierungenID":"449","Text":"Elternbesuch 35","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"36","FormulierungenID":"449","Text":"Elternbesuch 36","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"37","FormulierungenID":"449","Text":"Elternbesuch 37","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"38","FormulierungenID":"449","Text":"Elternbesuch 38","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"39","FormulierungenID":"449","Text":"Elternbesuch 39","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"40","FormulierungenID":"449","Text":"Elternbesuch 40","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"41","FormulierungenID":"449","Text":"Elternbesuch 41","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"42","FormulierungenID":"449","Text":"Elternbesuch 42","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"42","FormulierungenID":"449","Text":"Elternbesuch 42","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"43","FormulierungenID":"449","Text":"Elternbesuch 43","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"44","FormulierungenID":"449","Text":"Elternbesuch 44","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"45","FormulierungenID":"449","Text":"Elternbesuch 45","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"46","FormulierungenID":"449","Text":"Elternbesuch 46","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"47","FormulierungenID":"449","Text":"Elternbesuch 47","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"48","FormulierungenID":"449","Text":"Elternbesuch 48","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"49","FormulierungenID":"449","Text":"Elternbesuch 49","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"50","FormulierungenID":"449","Text":"Elternbesuch 50","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"51","FormulierungenID":"449","Text":"Elternbesuch 51","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"52","FormulierungenID":"449","Text":"Elternbesuch 52","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"53","FormulierungenID":"449","Text":"Elternbesuch 53","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"54","FormulierungenID":"449","Text":"Elternbesuch 54","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"55","FormulierungenID":"449","Text":"Elternbesuch 55","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"56","FormulierungenID":"449","Text":"Elternbesuch 56","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"57","FormulierungenID":"449","Text":"Elternbesuch 57","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"58","FormulierungenID":"449","Text":"Elternbesuch 58","AutorID":"1","Time":"2023-01-02 22:55:29"},
+{"id":"59","FormulierungenID":"449","Text":"Elternbesuch 59","AutorID":"1","Time":"2023-01-02 22:55:29"}
+
+
+]
+}
+]

@@ -19,7 +19,7 @@ $Inhalt.= '    <div class="row rod-cols-2 row-cols-md-1">';
 $Inhalt.= '      <div class="col-12 col-md-8">';
 $Inhalt.= '        <div class="d-flex justify-content-between align-items-center">';
 $Inhalt.= '        <h3 class="text-center sm-fs2">Entwicklungstherapie/ Entwicklungspädagogik</h3><h3 style="color: #ff8040;">light</h3>';
-$Inhalt.= '        <img src="img/ETEP LogoV3.jpg" alt="logo" style="height: 16vh; padding: 2vh;></img>';
+$Inhalt.= '        <img src="img/ETEPLogo.png" alt="logo" style="height: 16vh; padding: 2vh;></img>';
 $Inhalt.= '        <div  id="google_translate_element"></div> ';
 $Inhalt.= '        </div>';
 $Inhalt.= '      </div>';

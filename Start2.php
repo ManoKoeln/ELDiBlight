@@ -2,8 +2,55 @@
 <?php
 session_start(); // Starten der Session
 $_SESSION['LocalChat'] = true;
+// Datei, in der die Daten gespeichert werden
+$counterFile = 'Server/counter.txt';
 
-// require "content/db.php";
+// Benutzer-IP-Adresse abrufen
+$userIp = $_SERVER['REMOTE_ADDR'];
+
+// Überprüfen, ob die Datei existiert
+if (!file_exists($counterFile)) {
+    file_put_contents($counterFile, ""); // Datei erstellen
+}
+$geoData = file_get_contents("http://ip-api.com/json/$userIp");
+$geoInfo = json_decode($geoData, true);
+
+// IP-Adressen aus der Datei lesen
+$entries = file($counterFile, FILE_IGNORE_NEW_LINES);
+
+// Laufende Nummer berechnen
+$lastEntry = end($entries);
+$lastNumber = 0;
+if ($lastEntry) {
+    $lastNumber = (int)explode(',', $lastEntry)[0]; // Die laufende Nummer aus der letzten Zeile extrahieren
+}
+$currentNumber = $lastNumber + 1;
+
+// Datum und Uhrzeit abrufen
+$currentDateTime = date('Y-m-d H:i:s');
+$Country = $geoInfo['country'] ?? 'Unknown';
+$City = $geoInfo['city'] ?? 'Unknown';  
+
+// Neue Zeile erstellen
+$newEntry = "$currentNumber,$userIp,$currentDateTime,$Country,$City";
+
+// Prüfen, ob die IP-Adresse bereits existiert
+$ipExists = false;
+foreach ($entries as $entry) {
+    $entryParts = explode(',', $entry);
+    if (isset($entryParts[1]) && $entryParts[1] === $userIp) {
+        $ipExists = true;
+        break;
+    }
+}
+
+// Nur hinzufügen, wenn die IP-Adresse noch nicht existiert
+// if (!$ipExists) {
+    file_put_contents($counterFile, $newEntry . PHP_EOL, FILE_APPEND);
+// }
+
+// Anzahl der eindeutigen Besucher
+$uniqueVisitors = count($entries) + (!$ipExists ? 1 : 0);
 
 
 ?>
@@ -28,6 +75,7 @@ $_SESSION['LocalChat'] = true;
     <!-- <script src="JScript/ELDiKind.js"></script> -->
     <!-- <script src="JScript/ELDiBEltern.js"></script> -->
     <script src="JSON_Handling.js"></script>
+    <script src="JSON_HandlingETEP.js"></script>
     
     <style>
         .fixed-top-custom {
@@ -58,14 +106,14 @@ $_SESSION['LocalChat'] = true;
         }
     </style>
     <script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'de'
-  }, 'google_translate_element');
-}
+// function googleTranslateElementInit() {
+//   new google.translate.TranslateElement({
+//     pageLanguage: 'de'
+//   }, 'google_translate_element');
+// }
 </script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 <!-- <script src="Myjs.js"></script> -->
 
     <!-- <script src="Operator.js"></script>
@@ -166,6 +214,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="col">
         <button class="btn btn-primary m-1 w-130" onclick="exportTableToWord()">
           <i class="fas fa-print"></i>
+        </button>
+        <button class="btn btn-primary m-1 w-130 fas fa-question-circle" onclick="window.open('https://youtu.be/jl3OQjhFEKE', '_blank')"></button>
         </button>
       </div>
       <!-- <div class="col">

@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"dbs10487900"},
+{"type":"table","name":"massnahmen","database":"dbs10487900","data":
+[
+{"id":"2","FormulierungenID":"3","Text":"Geschichten erzählen","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"3","FormulierungenID":"3","Text":"Nacherzählungen","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"8","FormulierungenID":"6","Text":"Elterngespräch","AutorID":"1","Time":"2022-12-18 07:10:40"},
+{"id":"34","FormulierungenID":"403","Text":"Elternbesuch","AutorID":"1","Time":"2023-01-02 22:55:29"}
+]
+}
+]

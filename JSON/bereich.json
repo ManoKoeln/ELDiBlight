@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"dbs10487900"},
+{"type":"table","name":"bereich","database":"dbs10487900","data":
+[
+{"id":"1","Text":"Kommunikation"},
+{"id":"2","Text":"Verhalten"},
+{"id":"3","Text":"Soziales"},
+{"id":"4","Text":"Kognition"}
+]
+}
+]

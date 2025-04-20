@@ -49,6 +49,11 @@ $Inhalt = '';
    </td>';    //style="display:none;"
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
+    $Inhalt.= '<td>
+   <button typ="button" class="btn-primary "  onclick="loadBereichJSON();">Bereich</button>
+   </td>';    //style="display:none;"
+    $Inhalt.= '</tr>';
+    $Inhalt.= '<tr>';
     $Inhalt.= '<td><button typ="button" class="btn-primary " style="display: none;"  onclick="ShowELDiBKind_New();">ELDiB Kind Import von DB nach JSON</button></td>';    
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
