@@ -72,6 +72,23 @@ xmlhttp.open("POST","ELDiBLehrer.php?SetELDiBLehrer=true",false);
 xmlhttp.send();
 }
 
+function loadFileIntoElement(filePath, elementId) {
+  fetch(filePath)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading file:", error);
+    });
+}
+
+// Beispielaufruf
 
 
 function ShowELDiBLehrer_JSON(){
@@ -85,6 +102,8 @@ function ShowELDiBLehrer_JSON(){
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
          document.getElementById("Startseite").innerHTML=xmlhttp.responseText;
+         loadFileIntoElement("AktualClientBewertungsbogen.php", "AktualClient");
+          // document.getElementById("AktualClient").innerHTML = "AktualClientBewertungsbogen.php";
     }
   }
 
