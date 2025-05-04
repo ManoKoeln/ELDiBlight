@@ -461,6 +461,7 @@ function exportTableToWord() {
     form.submit();
     document.body.removeChild(form);
 }
+
 function saveAsJSON() {
     var RowCount = 0;
     var tableData = {

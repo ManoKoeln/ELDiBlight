@@ -50,7 +50,7 @@ $Inhalt = '';
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
     $Inhalt.= '<td>
-   <button typ="button" class="btn-primary "  onclick="loadBereichJSON();">Bereich</button>
+   <button typ="button" class="btn-primary "  onclick="loadFoerderplan();">Förderplan</button>
    </td>';    //style="display:none;"
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';

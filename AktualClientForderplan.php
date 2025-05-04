@@ -51,7 +51,7 @@
         <button class="btn btn-primary m-1 w-130" onclick="saveJSON()">Datei speichern</button>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-primary m-1 w-130" onclick="exportTableToWord()">
+        <button class="btn btn-primary m-1 w-130" onclick="exportFoerderplanToWord()">
           <i class="fas fa-print"></i>
         </button>
         <button class="btn btn-primary m-1 w-130 fas fa-question-circle" onclick="window.open('https://youtu.be/jl3OQjhFEKE', '_blank')"></button>
