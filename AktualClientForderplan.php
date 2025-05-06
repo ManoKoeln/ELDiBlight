@@ -48,7 +48,7 @@
         <button class="btn btn-primary m-1 w-130" onclick="loadJSON()">Datei laden</button>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-primary m-1 w-130" onclick="saveJSON()">Datei speichern</button>
+        <button class="btn btn-primary m-1 w-130" onclick="saveFoerderplanJSON()">Datei speichern</button>
       </div>
       <div class="col-md-2">
         <button class="btn btn-primary m-1 w-130" onclick="exportFoerderplanToWord()">

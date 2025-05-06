@@ -180,25 +180,48 @@ function loadFoerderplanTabelle() {
     thead.style.zIndex = '1';
     // thead.style.border = '1px solid black'; // Border hinzufügen
     const headerRow = document.createElement('tr');
-    ['Bereich', 'Ziele Stichwort', 'Ziele', 'Formulierung', 'Massnahmen'].forEach(key => {
-        const th = document.createElement('th');
-        th.textContent = key;
-        headerRow.appendChild(th);
-    });
+    const thBereich = document.createElement('th');
+    thBereich.textContent = 'Bereich';
+    thBereich.id = 'HeadBereich';
+    headerRow.appendChild(thBereich);
+    const thZieleStichwort = document.createElement('th');
+    thZieleStichwort.textContent = 'ZieleStichwort';
+    thZieleStichwort.id = 'HeadZieleStichwort';
+    headerRow.appendChild(thZieleStichwort);
+    const thZieleBeschreibung = document.createElement('th');
+    thZieleBeschreibung.textContent = 'ZieleBeschreibung';  
+    thZieleBeschreibung.id = 'HeadZieleBeschreibung';
+    headerRow.appendChild(thZieleBeschreibung);
+    const thFormulierung = document.createElement('th');
+    thFormulierung.textContent = 'Formulierung';
+    thFormulierung.id = 'HeadFormulierung';
+    headerRow.appendChild(thFormulierung);
+    const thMassnahmen = document.createElement('th');
+    thMassnahmen.textContent = 'Massnahmen';
+    thMassnahmen.id = 'HeadMassnahmen';
+    headerRow.appendChild(thMassnahmen);
+
+    // ['Bereich', 'Ziele Stichwort', 'Ziele', 'Formulierung', 'Massnahmen'].forEach(key => {
+    //     const th = document.createElement('th');
+    //     th.textContent = key;
+    //     headerRow.appendChild(th);
+    // });
     thead.appendChild(headerRow);
     foerderplanTabelle.appendChild(thead);
 
     const tbody = document.createElement('tbody');
-
+    const columnCount = 0; // Anzahl der Spalten in der Tabelle
     // Daten aus dem globalen Array in die Tabelle einfügen
     foerderplanData.forEach((entry, index) => {
+        
         const tr = document.createElement('tr');
         tr.style.border = '1px solid #ddd'; // Rand für die Zeile hinzufügen
-
+        tr.id = `Zeile_${index}`;
         entry.forEach(value => {
             const td = document.createElement('td');
             td.textContent = value;
             td.style.border = '1px solid #ddd'; // Rand für die Zelle hinzufügen
+            
             tr.appendChild(td);
         });
 
@@ -576,52 +599,52 @@ return [bereichText,zieleStichwort, zieleText, formulierungenText,massnahmenText
 function exportFoerderplanToWord() {
     const tableDataFoerderplan = [];
     const rows = document.querySelectorAll('#foerderplanTabelle tr');
+    const headData =[];
+
+    const inputHeadBereich = document.createElement('input');
+    inputHeadBereich.type = 'hidden';
+    inputHeadBereich.name = 'HeadBereich';
+    inputHeadBereich.value = document.getElementById('HeadBereich').innerText;
+
+    const inputHeadZieleStichwort = document.createElement('input');
+    inputHeadZieleStichwort.type = 'hidden';
+    inputHeadZieleStichwort.name = 'HeadZieleStichwort';
+    inputHeadZieleStichwort.value = document.getElementById('HeadZieleStichwort').innerText;
+
+    const inputHeadZieleBeschreibung = document.createElement('input');
+    inputHeadZieleBeschreibung.type = 'hidden';
+    inputHeadZieleBeschreibung.name = 'HeadZieleBeschreibung';
+    inputHeadZieleBeschreibung.value = document.getElementById('HeadZieleBeschreibung').innerText;
+
+    const inputHeadFormulierung = document.createElement('input');
+    inputHeadFormulierung.type = 'hidden';
+    inputHeadFormulierung.name = 'HeadFormulierung';
+    inputHeadFormulierung.value = document.getElementById('HeadFormulierung').innerText;
+
+    const inputHeadMassnahmen = document.createElement('input');
+    inputHeadMassnahmen.type = 'hidden';
+    inputHeadMassnahmen.name = 'HeadMassnahmen';
+    inputHeadMassnahmen.value = document.getElementById('HeadMassnahmen').innerText;
+
+
     rows.forEach((row, rowIndex) => {
         const rowData = [];
         row.querySelectorAll('td').forEach((cell, cellIndex) => {
             console.log(cellIndex + " == "+ cell.textContent);
-            // if (cell.querySelector('select')) {
-            //     const div = cell.querySelector('div');
-            //     // if (div) {
-            //     rowData.push({
-            //         text: div ? div.textContent : cell.textContent,
-            //         // text: div ? div.textContent : cell.textContent
-            //     });
-            // // }
-            // }
-            // else if (cell.querySelector('input')) {
-            //     const div = cell.querySelector('div');
-            //     rowData.push({
-            //         text: div ? div.textContent  : cell.textContent 
-            //     });
-            // } 
-            // else if (cell.querySelector('button')) {
-            //     const div = cell.querySelector('div');
-            //     rowData.push({
-            //         text: div ? div.textContent  : cell.textContent 
-            //     });
-            // } 
-            // else {
+
+            if ((cellIndex < 5)) { // Nur die ersten 5 Spalten (ohne ID) exportieren
                 rowData.push({
                     // id: cell.id,
                     text: cell.textContent 
                 });
+            }
             // }
         });
-        rowData.push({
-            id: '1',
-            text: 'Test 1'
-        });
+        if (rowIndex > 0){
         tableDataFoerderplan.push(rowData);
+        }
     });
-    const rowDataTest = [];
-    rowDataTest.push({
-        id: '1',
-        text: 'Test 1'
-    });
-    tableDataFoerderplan.push(rowDataTest);
-    // console.log("tableDataFoerderplan: ");
-    // console.log(tableDataFoerderplan);
+
     const form = document.createElement('form');
     form.method = 'POST';
     form.action = 'exportFoerderplanToWord.php';
@@ -630,23 +653,6 @@ function exportFoerderplanToWord() {
     inputtableDataFoerderplan.type = 'hidden';
     inputtableDataFoerderplan.name = 'tableDataFoerderplan';
     inputtableDataFoerderplan.value = JSON.stringify(tableDataFoerderplan);
-// console.log("inputtableDataFoerderplan: ");
-// console.log(inputtableDataFoerderplan.value);
-    // const inputHeadZieleStichwort = document.createElement('input');
-    // inputHeadZieleStichwort.type = 'hidden';
-    // inputHeadZieleStichwort.name = 'HeadZieleStichwort';
-    // inputHeadZieleStichwort.value = document.getElementById('HeadZieleStichwort').innerText;
-
-    // const inputHeadZieleBeschreibung = document.createElement('input');
-    // inputHeadZieleBeschreibung.type = 'hidden';
-    // inputHeadZieleBeschreibung.name = 'HeadZieleBeschreibung';
-    // inputHeadZieleBeschreibung.value = document.getElementById('HeadZieleBeschreibung').innerText;
-
-
-    // const inputHeadAuswahl = document.createElement('input');
-    // inputHeadAuswahl.type = 'hidden';
-    // inputHeadAuswahl.name = 'HeadAuswahl';
-    // inputHeadAuswahl.value = document.getElementById('HeadAuswahl').innerText;
 
     const inputVorname = document.createElement('input');
     inputVorname.type = 'hidden';
@@ -697,11 +703,35 @@ function exportFoerderplanToWord() {
     form.appendChild(inputDescName);
     form.appendChild(inputDescKlasse);
     form.appendChild(inputDescLehrer);
-    // form.appendChild(inputHeadZieleStichwort);
-    // form.appendChild(inputHeadZieleBeschreibung);   
-    // form.appendChild(inputHeadAuswahl);
+    form.appendChild(inputHeadBereich);
+    form.appendChild(inputHeadZieleStichwort);
+    form.appendChild(inputHeadZieleBeschreibung);
+    form.appendChild(inputHeadFormulierung);
+    form.appendChild(inputHeadMassnahmen);
+
+   
 
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
+}
+function saveFoerderplanJSON() {
+    validationVorname = document.getElementById("validationVorname").value;
+    validationName = document.getElementById("validationName").value;   
+    validationKlasse = document.getElementById("validationKlasse").value;
+    validationLehrer = document.getElementById("validationLehrer").value;   
+    foerderplanData.Vorname = validationVorname;
+    foerderplanData.Nachname = validationName;
+    foerderplanData.Klasse = validationKlasse;
+    foerderplanData.Lehrer = validationLehrer;
+
+
+    const json = JSON.stringify(foerderplanData, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = validationVorname + ' ' + validationName + ' ' + validationKlasse + ' ' + validationLehrer +'.json';
+    a.click();
+    URL.revokeObjectURL(url);
 }

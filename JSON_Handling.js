@@ -376,7 +376,9 @@ function exportTableToWord() {
                 });
             }
         });
+        if (rowIndex > 0){
         tableData.push(rowData);
+        }
     });
 
     const form = document.createElement('form');

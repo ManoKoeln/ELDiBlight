@@ -7,19 +7,14 @@ use PhpOffice\PhpWord\IOFactory;
 if (isset($_POST['tableDataFoerderplan'])) {
     $tableDataFoerderplan = json_decode($_POST['tableDataFoerderplan'], true);
 
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // JSON wurde erfolgreich dekodiert
-        var_dump($tableDataFoerderplan); // Zum Testen der Daten
-    } else {
-        // Fehler beim Dekodieren des JSON
-        echo 'JSON-Dekodierungsfehler: ' . json_last_error_msg();
-    }
-
-
-
 
     // // Headings
-    // $HeadZieleStichwort = $_POST['HeadZieleStichwort'];
+    $HeadBereich = $_POST['HeadBereich'];
+    $HeadZieleStichwort = $_POST['HeadZieleStichwort'];
+    $HeadZieleBeschreibung = $_POST['HeadZieleBeschreibung'];
+    $HeadFormulierung = $_POST['HeadFormulierung'];
+    $HeadMassnahmen = $_POST['HeadMassnahmen'];
+
     // $HeadZieleBeschreibung = $_POST['HeadZieleBeschreibung'];
     // $HeadAuswahl = $_POST['HeadAuswahl'];
         // aditional data
@@ -41,10 +36,6 @@ if (isset($_POST['tableDataFoerderplan'])) {
     $section->addText("$DescName: $validationName");
     $section->addText("$DescKlasse: $validationKlasse");
     $section->addText("$DescLehrer: $validationLehrer");
-    $section->addText('Test 1');
-    $section->addText('Test 2');
-    $section->addText('Test 3');
-    $section->addText('Test 4');
     // Tabelle hinzufügen
     $tableStyle = [
         'borderSize' => 6,
@@ -56,8 +47,16 @@ if (isset($_POST['tableDataFoerderplan'])) {
     $phpWord->addTableStyle('myTable', $tableStyle);
     $table = $section->addTable('myTable');
 
-
-    // foreach ($tableDataFoerderplan as $row) {
+    $headerRow = $table->addRow();
+    //             // // Tabellenüberschriften hinzufügen
+    
+                $headerRow->addCell(2000)->addText($HeadBereich, ['bold' => true]);
+                $headerRow->addCell(2000)->addText($HeadZieleStichwort, ['bold' => true]);
+                $headerRow->addCell(2000)->addText($HeadZieleBeschreibung, ['bold' => true]);
+                $headerRow->addCell(2000)->addText($HeadFormulierung, ['bold' => true]);
+                $headerRow->addCell(2000)->addText($HeadMassnahmen, ['bold' => true]);
+                
+    foreach ($tableDataFoerderplan as $row) {
     //     // $tableRow = $table->addRow();
     //     if (count($row) === 1) {
             
@@ -78,10 +77,7 @@ if (isset($_POST['tableDataFoerderplan'])) {
     //             $tableRow->addCell(12000, ['gridSpan' => 4])->addText($cellText);
 
 
-    //             $headerRow = $table->addRow();
-    //             // // Tabellenüberschriften hinzufügen
-    
-    //             // $headerRow->addCell(4000)->addText($HeadZieleStichwort, ['bold' => true]);
+
     //             // $headerRow->addCell(6000)->addText($HeadZieleBeschreibung, ['bold' => true]);
     //             // $headerRow->addCell(2000)->addText($HeadAuswahl, ['bold' => true]);
     //             }
@@ -90,33 +86,35 @@ if (isset($_POST['tableDataFoerderplan'])) {
 
     //     } 
     //     // else {
-    //     //     $tableRow = $table->addRow();
-    //     //     foreach ($row as $cell) {
-    //     //         $cellText = $cell['text'];
-    //     //         $cellOptions = [];
-    //     //         $textOptions = [];
+            $tableRow = $table->addRow();
+            foreach ($row as $cell) {
+                $cellText = $cell['text'];
+                $cellOptions = [];
+                $textOptions = [];
 
-    //     //         // Hintergrundfarbe und Schriftfarbe abhängig vom Textinhalt ändern
-    //     //         if ($cellText === 'später') {
-    //     //             $cellOptions['bgColor'] = '328127'; // Gelbe Hintergrundfarbe
-    //     //             $textOptions['color'] = 'FFFFFF'; // Rote Schriftfarbe
-    //     //         }
-    //     //         else if ($cellText === 'übt es jetzt') {
-    //     //             $cellOptions['bgColor'] = '45bb34'; // Rote Hintergrundfarbe
-    //     //             $textOptions['color'] = 'FFFF00'; // Gelbe Schriftfarbe
-    //     //         }
-    //     //         else if ($cellText === 'kann das Kind') {
-    //     //             $cellOptions['bgColor'] = '58fd41'; // Grüne Hintergrundfarbe
-    //     //             $textOptions['color'] = '0000FF'; // Blaue Schriftfarbe
-    //     //         }
+                // // Hintergrundfarbe und Schriftfarbe abhängig vom Textinhalt ändern
+                // if ($cellText === 'später') {
+                //     $cellOptions['bgColor'] = '328127'; // Gelbe Hintergrundfarbe
+                //     $textOptions['color'] = 'FFFFFF'; // Rote Schriftfarbe
+                // }
+                // else if ($cellText === 'übt es jetzt') {
+                //     $cellOptions['bgColor'] = '45bb34'; // Rote Hintergrundfarbe
+                //     $textOptions['color'] = 'FFFF00'; // Gelbe Schriftfarbe
+                // }
+                // else if ($cellText === 'kann das Kind') {
+                //     $cellOptions['bgColor'] = '58fd41'; // Grüne Hintergrundfarbe
+                //     $textOptions['color'] = '0000FF'; // Blaue Schriftfarbe
+                // }
+                if ($cellText != '') {
 
-    //     //         $tableRow->addCell(2000, $cellOptions)->addText($cellText, $textOptions);
-    //     //     }
-    //     // }
+                    $tableRow->addCell(2000, $cellOptions)->addText($cellText, $textOptions);
+                }
+            }
+        }
     // }
 
-    // $filename = $validationVorname.' '.$validationName.' '.$validationKlasse.' '.$validationLehrer."Tabelle.docx";
-    $filename = "Test.docx";
+    $filename = $validationVorname.' '.$validationName.' '.$validationKlasse.' '.$validationLehrer."_Förderplan.docx";
+    // $filename = "Test.docx";
     $temp_file = tempnam(sys_get_temp_dir(), $filename);
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
     $objWriter->save($temp_file);
@@ -133,7 +131,7 @@ if (isset($_POST['tableDataFoerderplan'])) {
     readfile($temp_file);
     unlink($temp_file);
     exit;
-} else {
-    echo 'Fehler: tableDataFoerderplan wurde nicht übergeben.';
+// } else {
+//     echo 'Fehler: tableDataFoerderplan wurde nicht übergeben.';
 }
 ?>
