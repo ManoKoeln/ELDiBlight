@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $section->addText("$DescKlasse: $validationKlasse");
     $section->addText("$DescLehrer: $validationLehrer");
 
+
     // Tabelle hinzufügen
     $tableStyle = [
         'borderSize' => 6,
@@ -43,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
     $phpWord->addTableStyle('myTable', $tableStyle);
     $table = $section->addTable('myTable');
+
 
 
     foreach ($tableData as $row) {
@@ -122,6 +124,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     }
+
+    $footer = $section->addFooter();
+
+    // $footer->addPreserveText('erstellt {DATE}',[], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+    $footer->addPreserveText($validationVorname. ' '.$validationName.' '.' - erstellt '.date('d.m.Y'), ['italic' => true, 'size' => 10], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+    $footer->addPreserveText('Seite {PAGE} von {NUMPAGES}', [], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]);
+
 
     $filename = $validationVorname.' '.$validationName.' '.$validationKlasse.' '.$validationLehrer."Tabelle.docx";
     $temp_file = tempnam(sys_get_temp_dir(), $filename);

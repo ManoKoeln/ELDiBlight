@@ -1,4 +1,34 @@
-const foerderplanData = []; // Globales Array für die gesammelten Daten
+let foerderplanData = {
+    details: []
+
+};
+// let additionalColumns = 0;
+
+function loadFoerderplanJSON() {
+    const fileInput = document.getElementById('fileFoerderplanInput');
+    fileInput.click();
+}
+
+function handleFileSelectFoerderplan(event) {
+    const file = event.target.files[0];
+    console.log("handleFileSelectFoerderplan : Filename= " + file.name + "  event= " + event);
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            foerderplanData = JSON.parse(e.target.result);
+            // Anzahl der zusätzlichen Spalten ermitteln
+            console.log("handleFileSelectFoerderplan : Filename= " + e.target.result);
+            additionalColumns = getMaxAdditionalColumns(foerderplanData.details);
+            document.getElementById("validationVorname").value = foerderplanData.Vorname;
+            document.getElementById("validationName").value = foerderplanData.Nachname;
+            document.getElementById("validationKlasse").value = foerderplanData.Klasse;
+            document.getElementById("validationLehrer").value = foerderplanData.Lehrer;
+            loadFoerderplanTabelle();
+            document.getElementById('fileFoerderplanInput').value = ''; // Eingabefeld zurücksetzen
+        };
+        reader.readAsText(file);
+    }
+}
 
 function loadFoerderplan() {
     // Pfad zur JSON-Datei
@@ -160,6 +190,8 @@ function loadFoerderplanTabelle() {
     const foerderplanTabelle = document.getElementById('foerderplanTabelle');
     foerderplanTabelle.innerHTML = ''; // Tabelle leeren
 
+
+
     foerderplanTabelle.style.position = 'relative';
     foerderplanTabelle.style.borderCollapse = 'collapse';
     foerderplanTabelle.style.display = 'flow'; // Tabelle anzeigen
@@ -212,7 +244,7 @@ function loadFoerderplanTabelle() {
     const tbody = document.createElement('tbody');
     const columnCount = 0; // Anzahl der Spalten in der Tabelle
     // Daten aus dem globalen Array in die Tabelle einfügen
-    foerderplanData.forEach((entry, index) => {
+    foerderplanData.details.forEach((entry, index) => {
         
         const tr = document.createElement('tr');
         tr.style.border = '1px solid #ddd'; // Rand für die Zeile hinzufügen
@@ -232,7 +264,7 @@ function loadFoerderplanTabelle() {
         deleteButton.classList.add('btn', 'btn-danger', 'btn-sm'); // Bootstrap-Klassen für Styling
         deleteButton.addEventListener('click', () => {
             // Zeile aus dem Array entfernen
-            foerderplanData.splice(index, 1);
+            foerderplanData.details.splice(index, 1);
 
             // Tabelle neu laden
             loadFoerderplanTabelle();
@@ -330,7 +362,7 @@ function loadZieleTabelle(bereichId) {
                         );
 
                         // Ergebnisse in das globale Array einfügen
-                        foerderplanData.push(resultArray);
+                        foerderplanData.details.push(resultArray);
 
                         // Tabelle aktualisieren
                         loadFoerderplanTabelle();       
@@ -422,7 +454,7 @@ function loadFormulierungenTabelle(zieleId) {
                         );
 
                         // Ergebnisse in das globale Array einfügen
-                        foerderplanData.push(resultArray);
+                        foerderplanData.details.push(resultArray);
 
                         // Tabelle aktualisieren
                         loadFoerderplanTabelle();       
@@ -501,7 +533,7 @@ function loadmassnahmenTabelle(FormulierungenId) {
                         );
 
                         // Ergebnisse in das globale Array einfügen
-                        foerderplanData.push(resultArray);
+                        foerderplanData.details.push(resultArray);
 
                         // Tabelle aktualisieren
                         loadFoerderplanTabelle();
@@ -720,10 +752,14 @@ function saveFoerderplanJSON() {
     validationName = document.getElementById("validationName").value;   
     validationKlasse = document.getElementById("validationKlasse").value;
     validationLehrer = document.getElementById("validationLehrer").value;   
-    foerderplanData.Vorname = validationVorname;
-    foerderplanData.Nachname = validationName;
-    foerderplanData.Klasse = validationKlasse;
-    foerderplanData.Lehrer = validationLehrer;
+
+
+        foerderplanData.Vorname = validationVorname;
+        foerderplanData.Nachname = validationName;
+        foerderplanData.Klasse = validationKlasse;
+        foerderplanData.Lehrer = validationLehrer;
+        // details: foerderplanData.details
+
 
 
     const json = JSON.stringify(foerderplanData, null, 2);

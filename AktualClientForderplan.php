@@ -45,7 +45,7 @@
         <button class="btn btn-primary m-1 w-130" onclick="NewJSONEltern()">Neue Datei (Eltern)</button>
       </div> -->
       <div class="col-md-2">
-        <button class="btn btn-primary m-1 w-130" onclick="loadJSON()">Datei laden</button>
+        <button class="btn btn-primary m-1 w-130" onclick="loadFoerderplanJSON()">Datei laden</button>
       </div>
       <div class="col-md-2">
         <button class="btn btn-primary m-1 w-130" onclick="saveFoerderplanJSON()">Datei speichern</button>

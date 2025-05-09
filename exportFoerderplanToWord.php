@@ -113,8 +113,14 @@ if (isset($_POST['tableDataFoerderplan'])) {
         }
     // }
 
+    $footer = $section->addFooter();
+
+    // $footer->addPreserveText('erstellt {DATE}',[], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+    $footer->addPreserveText('Förderplan: '.$validationVorname. ' '.$validationName.' '.' - erstellt '.date('d.m.Y'), ['italic' => true, 'size' => 10], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER]);
+    $footer->addPreserveText('Seite {PAGE} von {NUMPAGES}', [], ['alignment' => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]);
+
     $filename = $validationVorname.' '.$validationName.' '.$validationKlasse.' '.$validationLehrer."_Förderplan.docx";
-    // $filename = "Test.docx";
+    // $filename = "Test.docx";validationName
     $temp_file = tempnam(sys_get_temp_dir(), $filename);
     $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
     $objWriter->save($temp_file);

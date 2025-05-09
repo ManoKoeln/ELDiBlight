@@ -152,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body onload="StartHead();">
 
 <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="handleFileSelect(event)">
+<input type="file" id="fileFoerderplanInput" accept=".json" style="display:none;" onchange="handleFileSelectFoerderplan(event)">
     <textarea id="fileContent" style="display:none;"></textarea>
   
 
