@@ -11,7 +11,17 @@
     background-color: #f8f9fa; Hintergrundfarbe für bessere Sichtbarkeit 
  } */
 
+ #foerderplanTabelle, #ZieleTabelle, #BereichTabelle, #FormulierungenTabelle, #MassnahmenTabelle {
+    border-collapse: collapse; /* Doppelte Ränder vermeiden */
+    width: 100%; /* Optionale Breite */
+}
 
+#foerderplanTabelle th, #foerderplanTabelle td ,#ZieleTabelle th, #ZieleTabelle td, #BereichTabelle th, #BereichTabelle td , 
+#FormulierungenTabelle th, #FormulierungenTabelle td, #MassnahmenTabelle th, #MassnahmenTabelle td {
+    border: 1px solid black; /* Schwarze Ränder für Zellen */
+    padding: 8px; /* Abstand innerhalb der Zellen */
+    text-align: left; /* Text linksbündig ausrichten */
+}
 
 .TabContent{
     background-color: aqua;

@@ -3,6 +3,7 @@ let foerderplanData = {
 
 };
 // let additionalColumns = 0;
+let ConstructionMode = false; // Variable für den Konstruktionsmodus
 
 function loadFoerderplanJSON() {
     const fileInput = document.getElementById('fileFoerderplanInput');
@@ -43,27 +44,28 @@ function loadFoerderplan() {
 
     // Startseite in zwei Bereiche teilen
     const upperSection = document.createElement('div');
-    upperSection.style.height = '48%';
+    upperSection.style.height = '46%';
     upperSection.style.width = '100%';
     upperSection.style.display = 'flex'; // Flexbox aktivieren
     upperSection.style.flexDirection = 'row'; // Tabellen nebeneinander anordnen
     // upperSection.style.justifyContent = 'space-between'; // Platz zwischen den Tabellen
     upperSection.style.alignItems = 'flex-start'; // Tabellen oben ausrichten
     const middleSection = document.createElement('div');
-    middleSection.style.height = '4%';
+    middleSection.style.height = '8%';
     middleSection.style.width = '100%'; 
-    middleSection.style.border = '1px solid black'; // Border hinzufügen
+    middleSection.style.border = '3px solid black'; // Border hinzufügen
     middleSection.style.display = 'flex'; // Flexbox aktivieren
     middleSection.style.flexDirection = 'row'; // Tabellen nebeneinander anordnen
     const title = document.createElement('h1');
     title.textContent = 'Förderplan';
     title.style.margin = 'auto';
-    title.style.fontSize = '1.5vh';
+    title.style.fontSize = '2vh';
     title.style.fontWeight = 'bold';
+    // title.style.border = '3px solid black'; // Border hinzufügen
     middleSection.appendChild(title);
 
     const lowerSection = document.createElement('div');
-    lowerSection.style.height = '45%';
+    lowerSection.style.height = '44%';
     lowerSection.style.width = '100%';
     lowerSection.style.display = 'flex';
     lowerSection.style.flexDirection = 'column';
@@ -75,10 +77,10 @@ function loadFoerderplan() {
     // Haupttabelle erstellen
     const table = document.createElement('table');
     table.id = 'BereichTabelle';
-    table.border = '1';
+    // table.style.border = '1px solid black';
     table.style.width = '10%'; // Tabelle anzeigen
     table.style.position = 'relative';
-    table.style.borderCollapse = 'collapse';
+    // table.style.borderCollapse = 'collapse';
     // table.style.height = '50%'; // Tabelle anzeigen
 
     upperSection.appendChild(table);
@@ -103,11 +105,22 @@ function loadFoerderplan() {
             thead.style.backgroundColor = '#f1f1f1';
             thead.style.zIndex = '1';
             const headerRow = document.createElement('tr');
-            ['ID', 'Text'].forEach(key => {
+
+                // ['ID', 'Text'].forEach(key => {
+                //     const th = document.createElement('th');
+                //     th.textContent = key;
+                //     headerRow.appendChild(th);
+                // });
+ 
+                if (ConstructionMode) {
+                    const thid = document.createElement('th');
+                    thid.textContent = 'ID';
+                    headerRow.appendChild(thid);
+                }
                 const th = document.createElement('th');
-                th.textContent = key;
+                th.textContent = 'Bereich';
                 headerRow.appendChild(th);
-            });
+
             thead.appendChild(headerRow);
             table.appendChild(thead);
 
@@ -115,12 +128,15 @@ function loadFoerderplan() {
             const tbody = document.createElement('tbody');
             tableData.forEach(row => {
                 const tr = document.createElement('tr');
-
+                
                 // ID-Spalte
                 const tdId = document.createElement('td');
                 tdId.textContent = row.id;
+                if (!ConstructionMode) {
+                    tdId.style.display = 'none'; // ID-Spalte ausblenden, wenn im Konstruktionsmodus
+                }// Zeiger ändern, um Klickbarkeit anzuzeigen
                 tr.appendChild(tdId);
-
+                
                 // Text-Spalte
                 const tdText = document.createElement('td');
                 tdText.textContent = row.Text;
@@ -147,12 +163,12 @@ function loadFoerderplan() {
     // Ziele Tabelle erstellen
     const zieleTabelle = document.createElement('table');
     zieleTabelle.id = 'ZieleTabelle';
-    zieleTabelle.border = '1';
+    // zieleTabelle.border = '1';
     // zieleTabelle.style.width = '30%'; // Tabelle anzeigen
     zieleTabelle.style.height = '100%';
     zieleTabelle.style.overflow = 'auto'; // Tabelle anzeigen
     zieleTabelle.style.position = 'relative';
-    zieleTabelle.style.borderCollapse = 'collapse';
+    // zieleTabelle.style.borderCollapse = 'collapse';
     
     upperSection.appendChild(zieleTabelle);
     // Formulierungen Tabelle erstellen
@@ -161,7 +177,7 @@ function loadFoerderplan() {
     // formulierungenTabelle.style.width = '30%'; // Tabelle anzeigen
     formulierungenTabelle.style.height = '100%'; // Tabelle anzeigen
     formulierungenTabelle.style.overflow = 'auto'; // Tabelle anzeigen
-    formulierungenTabelle.border = '1';
+    // formulierungenTabelle.border = '1';
     upperSection.appendChild(formulierungenTabelle);
     // Massnahmen Tabelle erstellen
     const massnahmenTabelle = document.createElement('table');
@@ -169,7 +185,7 @@ function loadFoerderplan() {
     // massnahmenTabelle.style.width = '30%'; // Tabelle anzeigen
     massnahmenTabelle.style.height = '100%'; // Tabelle anzeigen
     massnahmenTabelle.style.overflow = 'auto'; // Tabelle anzeigen
-    massnahmenTabelle.border = '1';
+    // massnahmenTabelle.border = '1';
     upperSection.appendChild(massnahmenTabelle);
 
     const foerderplanTabelle = document.createElement('table');
@@ -177,6 +193,7 @@ function loadFoerderplan() {
     // foerderplanTabelle.style.width = '100%'; // Tabelle anzeigen
     foerderplanTabelle.style.height = '100%'; // Tabelle anzeigen
     foerderplanTabelle.style.overflow = 'auto'; // Tabelle anzeigen
+    // foerderplanTabelle.style.border = '1px solid black'; // Border hinzufügen
     lowerSection.appendChild(foerderplanTabelle);
     
                 Startseite.appendChild(upperSection);
@@ -193,14 +210,15 @@ function loadFoerderplanTabelle() {
 
 
     foerderplanTabelle.style.position = 'relative';
-    foerderplanTabelle.style.borderCollapse = 'collapse';
+    // foerderplanTabelle.style.borderCollapse = 'collapse';
     foerderplanTabelle.style.display = 'flow'; // Tabelle anzeigen
     foerderplanTabelle.style.overflow = 'auto'; // Tabelle anzeigen    
+    // foerderplanTabelle.style.border = '1px solid black'; // Border hinzufügen
     foerderplanTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     
     //foerderplanTabelle.style.border = '1px solid black'; // Border hinzufügen
 
-    foerderplanTabelle.style.borderCollapse = 'collapse'; // Doppelte Ränder vermeiden
+    // foerderplanTabelle.style.borderCollapse = 'collapse'; // Doppelte Ränder vermeiden
 
 
 
@@ -232,6 +250,10 @@ function loadFoerderplanTabelle() {
     thMassnahmen.textContent = 'Massnahmen';
     thMassnahmen.id = 'HeadMassnahmen';
     headerRow.appendChild(thMassnahmen);
+    const thLoeschen = document.createElement('th');
+    thLoeschen.textContent = '';
+    thLoeschen.id = 'HeadLoeschen';
+    headerRow.appendChild(thLoeschen);
 
     // ['Bereich', 'Ziele Stichwort', 'Ziele', 'Formulierung', 'Massnahmen'].forEach(key => {
     //     const th = document.createElement('th');
@@ -247,12 +269,12 @@ function loadFoerderplanTabelle() {
     foerderplanData.details.forEach((entry, index) => {
         
         const tr = document.createElement('tr');
-        tr.style.border = '1px solid #ddd'; // Rand für die Zeile hinzufügen
+        // tr.style.border = '1px solid #ddd'; // Rand für die Zeile hinzufügen
         tr.id = `Zeile_${index}`;
         entry.forEach(value => {
             const td = document.createElement('td');
             td.textContent = value;
-            td.style.border = '1px solid #ddd'; // Rand für die Zelle hinzufügen
+            // td.style.border = '1px solid #ddd'; // Rand für die Zelle hinzufügen
             
             tr.appendChild(td);
         });
@@ -285,7 +307,7 @@ function loadZieleTabelle(bereichId) {
     zieleTabelle.innerHTML = ''; // Tabelle leeren
 
     zieleTabelle.style.position = 'relative';
-    zieleTabelle.style.borderCollapse = 'collapse';
+    // zieleTabelle.style.borderCollapse = 'collapse';
     zieleTabelle.style.display = 'flow'; // Tabelle anzeigen
     zieleTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     zieleTabelle.style.overflow = 'auto'; // Tabelle anzeigen    
@@ -312,11 +334,19 @@ function loadZieleTabelle(bereichId) {
             thead.style.zIndex = '1';
 
             const headerRow = document.createElement('tr');
+            if (ConstructionMode) {
             ['id', 'BereichID', 'ZieleNummer', 'ZieleStichwort', 'ZieleBeschreibung'].forEach(key => {
                 const th = document.createElement('th');
                 th.textContent = key;
                 headerRow.appendChild(th);
             });
+            } else {
+                [ 'Nummer', 'Stichwort', 'Zielbeschreibung'].forEach(key => {
+                    const th = document.createElement('th');
+                    th.textContent = key;
+                    headerRow.appendChild(th);
+                });
+            }
             thead.appendChild(headerRow);
             zieleTabelle.appendChild(thead);
 
@@ -327,11 +357,17 @@ function loadZieleTabelle(bereichId) {
                     // ID-Spalte
                     const tdId = document.createElement('td');
                     tdId.textContent = row.id;
+                    if (!ConstructionMode) {
+                        tdId.style.display = 'none'; // ID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tr.appendChild(tdId);
 
                     // BereichID-Spalte
                     const tdBereichID = document.createElement('td');
                     tdBereichID.textContent = row.BereichID;
+                    if (!ConstructionMode) {
+                        tdBereichID.style.display = 'none'; // BereichID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tr.appendChild(tdBereichID);
 
                     // ZieleNummer-Spalte
@@ -349,6 +385,8 @@ function loadZieleTabelle(bereichId) {
                     tdZieleBeschreibung.textContent = row.ZieleBeschreibung;
                     // Event-Listener für Klick auf die "Text"-Spalte
                     tdZieleBeschreibung.addEventListener('click', () => {
+                        document.getElementById('FormulierungenTabelle').value = ''; // Tabelle anzeigen
+                        document.getElementById('MassnahmenTabelle').value = ''; // Tabelle anzeigen
                         loadFormulierungenTabelle(row.id); // Funktion aufrufen, um zweite Tabelle zu laden
                     });
                     // Doppelklick-Ereignis hinzufügen
@@ -388,7 +426,7 @@ function loadFormulierungenTabelle(zieleId) {
     document.getElementById('FormulierungenTabelle').style.width = '45%'; // Tabelle anzeigen
     formulierungenTabelle.innerHTML = ''; // Tabelle leeren
     formulierungenTabelle.style.position = 'relative';
-    formulierungenTabelle.style.borderCollapse = 'collapse';
+    // formulierungenTabelle.style.borderCollapse = 'collapse';
     formulierungenTabelle.style.display = 'flow'; // Tabelle anzeigen
     formulierungenTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     formulierungenTabelle.style.overflow = 'auto'; // Tabelle anzeigen 
@@ -413,11 +451,19 @@ function loadFormulierungenTabelle(zieleId) {
             thead.style.backgroundColor = '#f1f1f1';
             thead.style.zIndex = '1';
             const headerRow = document.createElement('tr');
+            if (ConstructionMode) {
             ['id', 'ZieleID', 'Text'].forEach(key => {
                 const th = document.createElement('th');
                 th.textContent = key;
                 headerRow.appendChild(th);
             });
+            } else {
+                ['Formulierung'].forEach(key => {
+                    const th = document.createElement('th');
+                    th.textContent = key;
+                    headerRow.appendChild(th);
+                });
+            }
             thead.appendChild(headerRow);
             formulierungenTabelle.appendChild(thead);
 
@@ -428,12 +474,18 @@ function loadFormulierungenTabelle(zieleId) {
 
                     // ID-Spalte
                     const tdId = document.createElement('td');
+                    if (!ConstructionMode) {
+                        tdId.style.display = 'none'; // ID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tdId.textContent = row.id;
                     tr.appendChild(tdId);
 
                     // ZieleID-Spalte
                     const tdZieleID = document.createElement('td');
                     tdZieleID.textContent = row.ZieleID;
+                    if (!ConstructionMode) {
+                        tdZieleID.style.display = 'none'; // ZieleID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tr.appendChild(tdZieleID);
 
                     // Text-Spalte
@@ -443,6 +495,7 @@ function loadFormulierungenTabelle(zieleId) {
                     // Event-Listener für Klick auf die "Text"-Spalte
                     tdText.textContent = row.Text;
                     tdText.addEventListener('click', () => {
+                        document.getElementById('MassnahmenTabelle').value = ''; // Tabelle anzeigen
                         loadmassnahmenTabelle(row.id); // Funktion aufrufen, um zweite Tabelle zu laden
                     });
                     tr.appendChild(tdText);
@@ -477,7 +530,7 @@ function loadmassnahmenTabelle(FormulierungenId) {
     document.getElementById('MassnahmenTabelle').style.width = '45%'; // Tabelle anzeigen
     massnahmenTabelle.innerHTML = ''; // Tabelle leeren
     massnahmenTabelle.style.position = 'relative';
-    massnahmenTabelle.style.borderCollapse = 'collapse';
+    // massnahmenTabelle.style.borderCollapse = 'collapse';
     massnahmenTabelle.style.display = 'flow'; // Tabelle anzeigen
     massnahmenTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     massnahmenTabelle.style.overflow = 'auto'; // Tabelle anzeigen 
@@ -501,11 +554,20 @@ function loadmassnahmenTabelle(FormulierungenId) {
             thead.style.zIndex = '1';
             // Tabellenkopf erstellen
             const headerRow = document.createElement('tr');
+            if (ConstructionMode) {
             ['id', 'FormulierungenID', 'Text'].forEach(key => {
                 const th = document.createElement('th');
                 th.textContent = key;
                 headerRow.appendChild(th);
             });
+            } else {
+                ['Massnahmen'].forEach(key => {
+                    const th = document.createElement('th');
+                    th.textContent = key;
+                    headerRow.appendChild(th);
+                });
+            }
+
             thead.appendChild(headerRow);
             massnahmenTabelle.appendChild(thead);
 
@@ -515,10 +577,16 @@ function loadmassnahmenTabelle(FormulierungenId) {
 
                     const tdId = document.createElement('td');
                     tdId.textContent = row.id;
+                    if (!ConstructionMode) {
+                        tdId.style.display = 'none'; // ID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tr.appendChild(tdId);
 
                     const tdFormulierungenID = document.createElement('td');
                     tdFormulierungenID.textContent = row.FormulierungenID;
+                    if (!ConstructionMode) {
+                        tdFormulierungenID.style.display = 'none'; // FormulierungenID-Spalte ausblenden, wenn im Konstruktionsmodus
+                    } // Zeiger ändern, um Klickbarkeit anzuzeigen
                     tr.appendChild(tdFormulierungenID);
 
                     const tdText = document.createElement('td');
