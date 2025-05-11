@@ -144,6 +144,10 @@ function loadFoerderplan() {
 
                 // Event-Listener für Klick auf die "Text"-Spalte
                 tdText.addEventListener('click', () => {
+                        document.getElementById('FormulierungenTabelle').innerHTML = ''; // Tabelle löschen
+
+                      document.getElementById('MassnahmenTabelle').innerHTML = ''; // Tabelle löschen
+
                     loadZieleTabelle(row.id); // Funktion aufrufen, um zweite Tabelle zu laden
                 });
 
@@ -385,8 +389,12 @@ function loadZieleTabelle(bereichId) {
                     tdZieleBeschreibung.textContent = row.ZieleBeschreibung;
                     // Event-Listener für Klick auf die "Text"-Spalte
                     tdZieleBeschreibung.addEventListener('click', () => {
-                        document.getElementById('FormulierungenTabelle').value = ''; // Tabelle anzeigen
-                        document.getElementById('MassnahmenTabelle').value = ''; // Tabelle anzeigen
+
+                        document.getElementById('FormulierungenTabelle').innerHTML = ''; // Tabelle löschen
+
+                       document.getElementById('MassnahmenTabelle').innerHTML = ''; // Tabelle löschen
+                        // document.getElementById('FormulierungenTabelle').value = ''; // Tabelle anzeigen
+                        // document.getElementById('MassnahmenTabelle').value = ''; // Tabelle anzeigen
                         loadFormulierungenTabelle(row.id); // Funktion aufrufen, um zweite Tabelle zu laden
                     });
                     // Doppelklick-Ereignis hinzufügen
