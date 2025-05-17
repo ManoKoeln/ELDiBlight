@@ -54,7 +54,8 @@
         <button class="btn btn-primary m-1 w-130" onclick="exportFoerderplanToWord()">
           <i class="fas fa-print"></i>
         </button>
-        <button class="btn btn-primary m-1 w-130 fas fa-question-circle" onclick="window.open('https://youtu.be/jl3OQjhFEKE', '_blank')"></button>
+        <!-- <button class="btn btn-primary m-1 w-130 fas fa-question-circle" onclick="window.open('https://youtu.be/7VR-lTONHMk', '_blank')"></button> -->
+          <button type="button" class="btn-primary m-1 p-2 w-130 fas fa-question-circle" onclick="window.open('https://www.youtube.com/embed/NQeB8_YOSuQ?autoplay=1&fs=1', '_blank', 'fullscreen=yes');"></button>
         </button>
       </div>
       <!-- <div class="col">
