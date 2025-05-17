@@ -80,6 +80,9 @@ function loadFoerderplan() {
     // table.style.border = '1px solid black';
     table.style.width = '10%'; // Tabelle anzeigen
     table.style.position = 'relative';
+    table.style.overflow = 'auto'; // Tabelle anzeigen
+    table.style.height = '100%'; // Tabelle anzeigen
+    table.style.marginRight = '5px'; // Abstand zwischen den Tabellen
     // table.style.borderCollapse = 'collapse';
     // table.style.height = '50%'; // Tabelle anzeigen
 
@@ -239,11 +242,11 @@ function loadFoerderplanTabelle() {
     thBereich.id = 'HeadBereich';
     headerRow.appendChild(thBereich);
     const thZieleStichwort = document.createElement('th');
-    thZieleStichwort.textContent = 'ZieleStichwort';
+    thZieleStichwort.textContent = 'Stichwort';
     thZieleStichwort.id = 'HeadZieleStichwort';
     headerRow.appendChild(thZieleStichwort);
     const thZieleBeschreibung = document.createElement('th');
-    thZieleBeschreibung.textContent = 'ZieleBeschreibung';  
+    thZieleBeschreibung.textContent = 'Ziel';  
     thZieleBeschreibung.id = 'HeadZieleBeschreibung';
     headerRow.appendChild(thZieleBeschreibung);
     const thFormulierung = document.createElement('th');
@@ -315,6 +318,7 @@ function loadZieleTabelle(bereichId) {
     zieleTabelle.style.display = 'flow'; // Tabelle anzeigen
     zieleTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     zieleTabelle.style.overflow = 'auto'; // Tabelle anzeigen    
+    zieleTabelle.style.marginRight = '5px'; // Abstand zwischen den Tabellen
 
 
     // JSON-Datei laden
@@ -438,6 +442,7 @@ function loadFormulierungenTabelle(zieleId) {
     formulierungenTabelle.style.display = 'flow'; // Tabelle anzeigen
     formulierungenTabelle.classList.add('table-scrollable'); // Klasse für Scrollbarkeit
     formulierungenTabelle.style.overflow = 'auto'; // Tabelle anzeigen 
+    formulierungenTabelle.style.marginRight = '5px'; // Abstand zwischen den Tabellen
     // formulierungenTabelle.style.height = '50%';   
 
     // JSON-Datei laden
@@ -843,7 +848,7 @@ function saveFoerderplanJSON() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = validationVorname + ' ' + validationName + ' ' + validationKlasse + ' ' + validationLehrer +'.json';
+    a.download = 'Förderplan '+ validationVorname + ' ' + validationName + ' ' + validationKlasse + ' ' + validationLehrer +'.json';
     a.click();
     URL.revokeObjectURL(url);
 }

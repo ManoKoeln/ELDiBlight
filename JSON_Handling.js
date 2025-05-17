@@ -317,7 +317,7 @@ function saveJSON() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = validationVorname + ' ' + validationName + ' ' + validationKlasse + ' ' + validationLehrer +'.json';
+    a.download = 'ELDiB ' +  validationVorname + ' ' + validationName + ' ' + validationKlasse + ' ' + validationLehrer +'.json';
     a.click();
     URL.revokeObjectURL(url);
 }

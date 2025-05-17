@@ -46,17 +46,17 @@ $Inhalt = '';
     // </td>';    //style="display:none;"
     $Inhalt.= '<td>
    <button typ="button" class="btn-primary "  onclick="ShowELDiBLehrer_JSON();">ELDiB  Bewertungsbogen</button></td><td>
-   <button type="button" class="btn-primary" onclick="window.open(\'https://youtu.be/jl3OQjhFEKE\', \'_blank\');">Beschreibung ELDiB  Bewertungsbogen</button>
+   <button type="button" class="btn-primary m-1 p-2 w-130 fas fa-question-circle" onclick="window.open(\'https://youtu.be/jl3OQjhFEKE\', \'_blank\');"> Beschreibung ELDiB  Bewertungsbogen</button>
    </td>';    //style="display:none;"
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
     $Inhalt.= '<td>
    <button typ="button" class="btn-primary "  onclick="loadFoerderplan();">Förderplan</button></td><td>
-   <button type="button" class="btn-primary" onclick="window.open(\'https://youtu.be/jl3OQjhFEKE\', \'_blank\');">Beschreibung Förderplan</button>
+   <button type="button" class="btn-primary m-1 p-2 w-130 fas fa-question-circle" onclick="window.open(\'https://youtu.be/jl3OQjhFEKE\', \'_blank\');"> Beschreibung Förderplan</button>
    </td>';    //style="display:none;"
     $Inhalt.= '</tr>';
     $Inhalt.= '<tr>';
-    $Inhalt.= '<td><button typ="button" class="btn-primary " style="display: none;"  onclick="ShowELDiBKind_New();">ELDiB Kind Import von DB nach JSON</button>
+    $Inhalt.= '<td><button typ="button" class="btn-primary" style="display: none;"  onclick="ShowELDiBKind_New();">ELDiB Kind Import von DB nach JSON</button>
      
     </td>';    
    

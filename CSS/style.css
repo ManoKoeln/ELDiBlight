@@ -19,8 +19,10 @@
 #foerderplanTabelle th, #foerderplanTabelle td ,#ZieleTabelle th, #ZieleTabelle td, #BereichTabelle th, #BereichTabelle td , 
 #FormulierungenTabelle th, #FormulierungenTabelle td, #MassnahmenTabelle th, #MassnahmenTabelle td {
     border: 1px solid black; /* Schwarze Ränder für Zellen */
-    padding: 8px; /* Abstand innerhalb der Zellen */
+    padding: 4px; /* Abstand innerhalb der Zellen */
     text-align: left; /* Text linksbündig ausrichten */
+    /* font-size: calc(var(--FontSize)*1); Schriftgröße */
+    font-size: 1.7vh; 
 }
 
 .TabContent{
